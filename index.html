@@ -1,0 +1,563 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>G V Abhiroop Sujay H</title>
+<meta name="description" content="G V Abhiroop Sujay H, AI engineer: multi-agent systems, RAG, computer vision and NLU projects.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+  img { max-width: 100%; }
+  [hidden] { display: none !important; }
+  body { margin: 0; }
+  :root {
+    --ground: #EDF0F2;
+    --surface: #FFFFFF;
+    --ink: #111A22;
+    --ink-2: #3D4955;
+    --muted: #6A7682;
+    --line: #D3D9DF;
+    --accent: #2440D0;
+    --accent-soft: #DCE2FB;
+    --award: #9A6400;
+    --award-soft: #F6E9CC;
+    --display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+    --body: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+    --mono: "IBM Plex Mono", ui-monospace, "Cascadia Mono", Consolas, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      color-scheme: dark;
+      --ground: #0D1217;
+      --surface: #151C23;
+      --ink: #E7ECF0;
+      --ink-2: #B3BEC8;
+      --muted: #85919C;
+      --line: #27313B;
+      --accent: #8FA2FF;
+      --accent-soft: #1C2550;
+      --award: #E6B85C;
+      --award-soft: #33280F;
+    }
+  }
+  :root[data-theme="dark"] {
+    color-scheme: dark;
+    --ground: #0D1217;
+    --surface: #151C23;
+    --ink: #E7ECF0;
+    --ink-2: #B3BEC8;
+    --muted: #85919C;
+    --line: #27313B;
+    --accent: #8FA2FF;
+    --accent-soft: #1C2550;
+    --award: #E6B85C;
+    --award-soft: #33280F;
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    background: var(--ground);
+    color: var(--ink);
+    font: 400 16px/1.6 var(--body);
+    padding-inline: 20px;
+  }
+  .wrap { max-width: 1080px; margin: 0 auto; }
+  a { color: var(--accent); text-underline-offset: 3px; }
+  a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+  h1, h2, h3 { font-family: var(--display); text-wrap: balance; margin: 0; }
+  .label {
+    font: 500 12px/1.3 var(--mono);
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  /* Top bar */
+  .top {
+    display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap;
+    padding-block: 22px;
+    border-bottom: 1px solid var(--line);
+  }
+  .top .mark { font: 700 18px/1 var(--display); letter-spacing: -.01em; }
+  .top nav { display: flex; gap: 20px; flex-wrap: wrap; }
+  .top nav a, .top nav .navlink { color: var(--ink-2); text-decoration: none; font: 500 14px/1 var(--body); }
+  .top nav .navlink { background: none; border: 0; padding: 0; cursor: pointer; }
+  .top nav a:hover, .top nav .navlink:hover { color: var(--accent); }
+  .navlink:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+
+  /* Hero */
+  .hero { padding-block: 64px 48px; display: grid; gap: 28px; }
+  .hero h1 {
+    font-size: clamp(34px, 5.6vw, 64px);
+    font-weight: 800;
+    line-height: 1.02;
+    letter-spacing: -.03em;
+    max-width: 20ch;
+  }
+  .hero h1 span { color: var(--accent); }
+  .hero .lede-group { display: grid; gap: 14px; }
+  .hero .lede { max-width: 62ch; font-size: clamp(17px, 2vw, 20px); color: var(--ink-2); margin: 0; }
+  .hero .hero-foot { padding-top: 20px; border-top: 1px solid var(--line); color: var(--ink-2); }
+  .hero .cta { display: flex; gap: 12px; flex-wrap: wrap; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    font: 500 15px/1 var(--body);
+    padding: 12px 18px; border-radius: 6px;
+    text-decoration: none; border: 1px solid var(--ink); color: var(--ink); background: transparent;
+    cursor: pointer;
+  }
+  .btn.primary { background: var(--ink); color: var(--ground); }
+  .btn:hover { border-color: var(--accent); color: var(--accent); }
+  .btn.primary:hover { background: var(--accent); color: var(--surface); }
+
+  /* Record strip */
+  .record {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    border-block: 1px solid var(--line);
+  }
+  .record div { padding: 20px 20px 20px 0; display: grid; gap: 6px; align-content: start; }
+  .record div + div { padding-left: 20px; border-left: 1px solid var(--line); }
+  .record b { font: 700 22px/1.15 var(--display); letter-spacing: -.01em; }
+  .record span { font-size: 14px; color: var(--ink-2); line-height: 1.4; }
+  @media (max-width: 820px) {
+    .record { grid-template-columns: 1fr 1fr; }
+    .record div:nth-child(odd) { padding-left: 0; border-left: 0; }
+    .record div:nth-child(n+3) { border-top: 1px solid var(--line); }
+  }
+  @media (max-width: 440px) {
+    .record { grid-template-columns: 1fr; }
+    .record div, .record div + div { padding-left: 0; border-left: 0; }
+    .record div + div { border-top: 1px solid var(--line); }
+  }
+
+  /* Sections */
+  section { padding-block: 72px 16px; }
+  .sec-head { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; flex-wrap: wrap; margin-bottom: 32px; }
+  .sec-head h2 { font-size: clamp(30px, 4.5vw, 44px); font-weight: 700; letter-spacing: -.025em; }
+
+  /* Projects */
+  .projects { display: grid; gap: 20px; }
+  .project {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 32px;
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    gap: 36px;
+  }
+  @media (max-width: 820px) { .project { grid-template-columns: 1fr; gap: 20px; padding: 24px 20px; } }
+  .meta { display: grid; gap: 16px; align-content: start; }
+  .meta h3 { font-size: 28px; font-weight: 700; letter-spacing: -.02em; line-height: 1.1; }
+  .kind { font: 500 13px/1.4 var(--mono); color: var(--accent); }
+  .award {
+    display: grid; gap: 6px;
+  }
+  .award span {
+    display: inline-block; justify-self: start;
+    font: 500 12.5px/1.35 var(--mono);
+    color: var(--award); background: var(--award-soft);
+    padding: 5px 9px; border-radius: 4px;
+  }
+  .stack { display: flex; flex-wrap: wrap; gap: 6px; }
+  .stack li {
+    list-style: none; font: 400 12.5px/1 var(--mono); color: var(--ink-2);
+    border: 1px solid var(--line); padding: 6px 8px; border-radius: 4px;
+  }
+  .stack { margin: 0; padding: 0; }
+  .meta .repo { font: 500 14px/1.3 var(--mono); }
+
+  .detail { display: grid; gap: 22px; align-content: start; min-width: 0; }
+  .detail p { margin: 0; max-width: 66ch; color: var(--ink-2); }
+  .detail p strong { color: var(--ink); font-weight: 600; }
+  .points { margin: 0; padding-left: 18px; display: grid; gap: 6px; color: var(--ink-2); max-width: 66ch; }
+
+  /* Pipeline diagram */
+  .pipe-wrap { display: grid; gap: 10px; }
+  .pipe {
+    list-style: none; margin: 0; padding: 0;
+    display: flex; flex-wrap: wrap; align-items: stretch; row-gap: 10px;
+  }
+  .pipe > li { display: flex; align-items: center; }
+  .pipe > li + li::before {
+    content: "→"; font: 500 15px/1 var(--mono); color: var(--muted); padding-inline: 8px;
+  }
+  .node {
+    font: 400 13px/1.3 var(--mono);
+    background: var(--ground);
+    border: 1px solid var(--line);
+    border-radius: 5px;
+    padding: 8px 10px;
+    color: var(--ink);
+  }
+  .node.key { background: var(--accent-soft); border-color: transparent; color: var(--ink); }
+  .node.gate { border-style: dashed; border-color: var(--accent); }
+  .node small { display: block; color: var(--muted); font-size: 11.5px; }
+  .fork { display: grid; gap: 6px; }
+
+  /* Award photos */
+  .proof { display: grid; gap: 10px; }
+  .proof-row { display: flex; flex-wrap: wrap; gap: 12px; }
+  .proof figure { margin: 0; display: grid; gap: 8px; max-width: 100%; }
+  .proof img {
+    display: block; height: 220px; width: auto; max-width: 100%; object-fit: contain;
+    border: 1px solid var(--line); border-radius: 6px; background: var(--ground);
+  }
+  .proof figcaption { font: 400 12.5px/1.35 var(--mono); color: var(--muted); max-width: 32ch; }
+  @media (max-width: 440px) { .proof img { height: auto; max-height: 260px; } }
+
+  /* Skills */
+  .skills { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border-top: 1px solid var(--line); }
+  .skills > div { padding: 22px 24px 22px 0; display: grid; gap: 10px; align-content: start; border-bottom: 1px solid var(--line); }
+  .skills > div:not(:nth-child(3n+1)) { padding-left: 24px; border-left: 1px solid var(--line); }
+  .skills h3 { font-size: 19px; font-weight: 700; }
+  .skills p { margin: 0; color: var(--ink-2); font-size: 15px; }
+  @media (max-width: 820px) {
+    .skills { grid-template-columns: 1fr; }
+    .skills > div, .skills > div:not(:nth-child(3n+1)) { padding-left: 0; border-left: 0; }
+  }
+
+  /* Contact */
+  .contact {
+    margin-block: 72px 48px;
+    background: var(--ink); color: var(--ground);
+    border-radius: 12px; padding: 44px 36px;
+    display: grid; gap: 22px;
+  }
+  .contact h2 { font-size: clamp(30px, 5vw, 52px); font-weight: 800; letter-spacing: -.03em; line-height: 1; }
+  .contact p { margin: 0; max-width: 56ch; opacity: .8; }
+  .contact .row { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+  .email {
+    font: 500 16px/1 var(--mono);
+    padding: 13px 16px; border-radius: 6px;
+    background: color-mix(in srgb, var(--ground) 12%, transparent);
+    user-select: all; overflow-wrap: anywhere;
+  }
+  .contact .btn { border-color: var(--ground); color: var(--ground); }
+  .contact .btn:hover { border-color: var(--accent); color: var(--accent); }
+  @media (max-width: 440px) { .contact { padding: 32px 20px; } }
+
+  footer { padding-block: 0 40px; color: var(--muted); font: 400 13px/1.4 var(--mono); }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .hero > * { animation: rise .6s cubic-bezier(.2,.7,.2,1) both; }
+    .hero > *:nth-child(2) { animation-delay: .06s; }
+    .hero > *:nth-child(3) { animation-delay: .12s; }
+    .hero > *:nth-child(4) { animation-delay: .18s; }
+    @keyframes rise { from { transform: translateY(10px); opacity: .01; } to { transform: none; opacity: 1; } }
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header class="top">
+    <div class="mark">G V Abhiroop Sujay H</div>
+    <nav aria-label="Sections">
+      <button type="button" class="navlink" data-target="work">Work</button>
+      <button type="button" class="navlink" data-target="skills">Skills</button>
+      <button type="button" class="navlink" data-target="contact">Contact</button>
+      <a href="https://www.linkedin.com/in/g-v-abhiroop-sujay-h-18b455201/">LinkedIn ↗</a>
+    </nav>
+  </header>
+
+  <div class="hero">
+    <h1>Software Engineer with <span>2+ years</span> of professional experience and hands-on experience building AI systems.</h1>
+    <div class="lede-group">
+      <p class="lede">I work across LLMs, RAG, multi-agent systems, NLP, and computer vision, building solutions that connect AI models with real applications, tools, and data.</p>
+      <p class="lede">Currently a Software Engineer at NCR Atleos, where I build production software for enterprise ATM applications and explore AI-driven solutions through product innovation and engineering projects.</p>
+    </div>
+    <div class="cta">
+      <button type="button" class="btn primary" data-target="work">See the projects</button>
+      <a class="btn" href="https://www.linkedin.com/in/g-v-abhiroop-sujay-h-18b455201/">LinkedIn ↗</a>
+      <a class="btn" href="https://github.com/Abhiroop-hgv">GitHub ↗</a>
+    </div>
+    <div class="label hero-foot">2+ years experience · Software engineering · Applied AI · NCR Atleos</div>
+  </div>
+
+  <div class="record" aria-label="Recognition">
+    <div><b>Winner</b><span>Hyderabad Innovation Challenge</span></div>
+    <div><b>Runner-up ×2</b><span>Yuktimanthan 1.0 (2025) and 2.0 (2026), both as team lead</span></div>
+    <div><b>Top 10</b><span>NCR Atleos Global Hackathon 2024</span></div>
+    <div><b>Top 25</b><span>NCR Atleos Global Hackathon 2025</span></div>
+  </div>
+
+  <section id="work">
+    <div class="sec-head">
+      <h2>Selected work</h2>
+      <span class="label">5 projects</span>
+    </div>
+
+    <div class="projects">
+
+      <!-- CircuitMind -->
+      <article class="project">
+        <div class="meta">
+          <div class="kind">Agentic procurement &amp; supply-chain decisions</div>
+          <h3>CircuitMind AI</h3>
+          <div class="award"><span>Runner-up · Yuktimanthan 2.0</span><span>Team lead</span></div>
+          <ul class="stack">
+            <li>LangGraph</li><li>MCP</li><li>Python</li><li>FastAPI</li><li>Next.js</li><li>PostgreSQL</li><li>Groq · gpt-oss-120b</li><li>Holt-Winters</li>
+          </ul>
+          <a class="repo" href="https://github.com/Abhiroop-hgv/CircuitMind">github.com/Abhiroop-hgv/CircuitMind ↗</a>
+        </div>
+        <div class="detail">
+          <p>An agentic AI system for semiconductor manufacturing that converts external supply-chain disruptions into <strong>actionable procurement plans</strong>. It traces each disruption's impact across BOMs and inventory, identifies shortages, and recommends <strong>part numbers, quantities, suppliers and dates</strong>. Six specialised agents are orchestrated with <strong>LangGraph</strong>, using <strong>MCP</strong> for controlled access to enterprise tools and data. A <strong>human-in-the-loop interrupt</strong> lets a buyer review and approve the plan before any procurement action runs.</p>
+          <div class="pipe-wrap">
+            <div class="label">LangGraph agent graph</div>
+            <ol class="pipe">
+              <li><span class="node">Event ingestion<small>notice → JSON schema</small></span></li>
+              <li><span class="node">Exposure<small>supplier lanes, origin</small></span></li>
+              <li><span class="node">Shortage<small>stock ledger + forecast</small></span></li>
+              <li><span class="node">Substitutes<small>rule-engine verdict</small></span></li>
+              <li><span class="node">Procurement<small>price × reliability</small></span></li>
+              <li><span class="node key gate">Human approval<small>LangGraph interrupt</small></span></li>
+            </ol>
+          </div>
+          <ul class="points">
+            <li>JSON-schema constrained decoding so agents can't emit invalid categories.</li>
+            <li>Compatibility verdicts come from a deterministic rule engine, not the LLM.</li>
+            <li>MCP gives agents controlled access to ERP tools and data, backed by a read-only database role.</li>
+            <li>Output guards replace unsourced figures before display.</li>
+            <li>Live dashboard streams each agent's progress over server-sent events.</li>
+          </ul>
+          <div class="proof">
+            <div class="label">Recognition</div>
+            <div class="proof-row">
+              <figure>
+                <img src="img/yuktimanthan-2-prize.jpg" alt="Udyoga Pramoda prize cheque for ₹21,000 made out to Team Satyatma, dated 13 September 2026, Yuktimanthan 2.0" loading="lazy">
+                <figcaption>Yuktimanthan 2.0 runner-up · ₹21,000 · Sep 2026</figcaption>
+              </figure>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- ATM fraud -->
+      <article class="project">
+        <div class="meta">
+          <div class="kind">Real-time computer vision</div>
+          <h3>ATM Fraud Guard</h3>
+          <div class="award"><span>Winner · Hyderabad Innovation Challenge</span><span>Top 25 · NCR Atleos Global Hackathon 2025</span></div>
+          <ul class="stack">
+            <li>Python</li><li>PyTorch</li><li>YOLOv8</li><li>OpenCV</li><li>MediaPipe</li><li>Multithreading</li>
+          </ul>
+        </div>
+        <div class="detail">
+          <p>A security layer for ATMs that watches the person at the machine. Three vision models run side by side: one matches the user's retina against a database of <strong>convicted criminals</strong>, one classifies body pose on its own thread to catch suspicious behaviour, and one detects face masks. When the system flags a threat it <strong>alerts the nearest police station</strong> automatically.</p>
+          <div class="pipe-wrap">
+            <div class="label">Inference flow</div>
+            <ol class="pipe">
+              <li><span class="node">ATM camera feed</span></li>
+              <li>
+                <div class="fork">
+                  <span class="node">Retina match<small>vs. convicted-criminal DB</small></span>
+                  <span class="node">Pose classifier<small>separate thread</small></span>
+                  <span class="node">Mask detection</span>
+                </div>
+              </li>
+              <li><span class="node gate">Threat flagged</span></li>
+              <li><span class="node key">Alert nearest police station</span></li>
+            </ol>
+          </div>
+          <div class="proof">
+            <div class="label">Recognition · code in a private repo</div>
+            <div class="proof-row">
+              <figure>
+                <img src="img/ncr-reverse-innovation-2025-finalist.jpg" alt="NCR Atleos Reverse Innovation Challenge 2025 finalist trophy awarded to G V Abhiroop Sujay Huttavali" loading="lazy">
+                <figcaption>NCR Atleos 2025 · Finalist</figcaption>
+              </figure>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- RAG -->
+      <article class="project">
+        <div class="meta">
+          <div class="kind">Retrieval-augmented generation</div>
+          <h3>Query-to-Automation RAG</h3>
+          <ul class="stack">
+            <li>Python</li><li>LangChain</li><li>ChromaDB</li><li>FastAPI</li><li>Embeddings</li><li>LLM</li>
+          </ul>
+        </div>
+        <div class="detail">
+          <p>Writing automation meant manually finding the right keywords for every step a person described. I built a RAG system that takes a plain-English query, retrieves the matching entries from the automation keyword library, and has an LLM compose the <strong>ready-to-run automation keywords</strong>. It cuts out the manual lookup and translation work.</p>
+          <div class="pipe-wrap">
+            <div class="label">Pipeline</div>
+            <ol class="pipe">
+              <li><span class="node">User query<small>natural language</small></span></li>
+              <li><span class="node">Retrieve<small>ChromaDB · keyword library</small></span></li>
+              <li><span class="node">LLM generation<small>LangChain · retrieved context</small></span></li>
+              <li><span class="node key">Automation keywords</span></li>
+            </ol>
+          </div>
+        </div>
+      </article>
+
+      <!-- Virtual Teller -->
+      <article class="project">
+        <div class="meta">
+          <div class="kind">Conversational banking · NLU</div>
+          <h3>AI Virtual Teller</h3>
+          <div class="award"><span>Top 10 · NCR Atleos Global Hackathon 2024</span></div>
+          <ul class="stack">
+            <li>Python</li><li>OpenAI Whisper</li><li>Fine-tuned Llama</li><li>Intent classification</li><li>Transaction APIs</li>
+          </ul>
+        </div>
+        <div class="detail">
+          <p>A virtual bank teller that customers talk to in their own words. <strong>OpenAI Whisper</strong> transcribes the spoken request, and a <strong>fine-tuned Llama</strong> intent classifier maps it to a banking operation, such as a withdrawal, a transfer or a balance check. The teller then <strong>performs the transaction on the customer's behalf</strong>.</p>
+          <div class="pipe-wrap">
+            <div class="label">Flow</div>
+            <ol class="pipe">
+              <li><span class="node">"Send ₹500 to Rahul"<small>spoken request</small></span></li>
+              <li><span class="node">Speech to text<small>Whisper</small></span></li>
+              <li><span class="node">Intent classifier<small>fine-tuned Llama</small></span></li>
+              <li><span class="node">Map to operation</span></li>
+              <li><span class="node key">Transaction executed</span></li>
+            </ol>
+          </div>
+          <div class="proof">
+            <div class="label">Recognition · code in a private repo</div>
+            <div class="proof-row">
+              <figure>
+                <img src="img/ncr-hackathon-2024-top10.jpg" alt="NCR Atleos Hackathon, The Future of the ATM, July 2024, Global Top 10 trophy awarded to G V Abhiroop Sujay Huttavali" loading="lazy">
+                <figcaption>NCR Atleos Hackathon · Global Top 10 · Jul 2024</figcaption>
+              </figure>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Swach Campus -->
+      <article class="project">
+        <div class="meta">
+          <div class="kind">Drones · Object detection</div>
+          <h3>Swach Campus</h3>
+          <div class="award"><span>College project</span></div>
+          <ul class="stack">
+            <li>YOLOv5</li><li>Drone waypoint missions</li><li>Node.js</li><li>Web app</li><li>ServiceNow</li>
+          </ul>
+          <a class="repo" href="https://github.com/Abhiroop-hgv/Mission-Store">github.com/Abhiroop-hgv/Mission-Store ↗</a>
+        </div>
+        <div class="detail">
+          <p>Drone-based trash detection for a campus. In a web app, the user picks waypoints on a map; the drone flies to each one and photographs the ground. A pre-trained <strong>YOLOv5</strong> model runs inference on every image, and any detection with confidence above <strong>0.5</strong> automatically raises a <strong>ServiceNow ticket</strong> so the facilities team can clean it up.</p>
+          <div class="pipe-wrap">
+            <div class="label">Mission loop</div>
+            <ol class="pipe">
+              <li><span class="node">Pick waypoints<small>web app</small></span></li>
+              <li><span class="node">Drone flies mission</span></li>
+              <li><span class="node">Capture image</span></li>
+              <li><span class="node">YOLOv5 inference</span></li>
+              <li><span class="node gate">conf &gt; 0.5</span></li>
+              <li><span class="node key">ServiceNow ticket</span></li>
+            </ol>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <section id="more-recognition">
+    <div class="sec-head">
+      <h2>More recognition</h2>
+    </div>
+    <div class="proof">
+      <div class="proof-row">
+        <figure>
+          <img src="img/yuktimanthan-1-prize.jpg" alt="Udyoga Pramoda prize cheque for ₹15,000 made out to Team Satyatma, dated 17 August 2025, Yuktimanthan 1.0" loading="lazy">
+          <figcaption>Yuktimanthan 1.0 runner-up · Team lead · ₹15,000 · Aug 2025</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="sec-head">
+      <h2>What I work with</h2>
+    </div>
+    <div class="skills">
+      <div>
+        <div class="label">LLMs &amp; agents</div>
+        <h3>Multi-agent orchestration</h3>
+        <p>LangGraph agent graphs with MCP tool access, JSON-schema constrained decoding, guardrails and human-in-the-loop interrupts.</p>
+      </div>
+      <div>
+        <div class="label">Retrieval</div>
+        <h3>RAG systems</h3>
+        <p>LangChain, ChromaDB and FastAPI pipelines: embedding, retrieval and grounded generation that turn free-text requests into structured, executable output.</p>
+      </div>
+      <div>
+        <div class="label">NLP</div>
+        <h3>Intent &amp; language understanding</h3>
+        <p>Whisper speech-to-text and fine-tuned Llama intent classifiers that map natural language to concrete actions in banking workflows.</p>
+      </div>
+      <div>
+        <div class="label">Vision</div>
+        <h3>Detection &amp; recognition</h3>
+        <p>PyTorch, YOLOv5/YOLOv8, OpenCV and MediaPipe for object detection, retina recognition, pose classification and mask detection, run concurrently in real time.</p>
+      </div>
+      <div>
+        <div class="label">Engineering</div>
+        <h3>Shipping the whole system</h3>
+        <p>Python, FastAPI, Node.js, Next.js, PostgreSQL, forecasting with statsmodels, and integrations such as ServiceNow.</p>
+      </div>
+      <div>
+        <div class="label">Leadership</div>
+        <h3>Leading hackathon teams</h3>
+        <p>Led my team to runner-up at both Yuktimanthan 1.0 and 2.0 (CircuitMind); placed in two NCR Atleos global hackathons.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="contact" id="contact">
+    <div class="label" style="color: inherit; opacity: .7;">Open to AI Engineer roles</div>
+    <h2>Let's talk.</h2>
+    <p>I'm looking for a team building LLM agents, RAG or applied vision systems that ship to real users.</p>
+    <div class="row">
+      <span class="email" id="email">abhiroopsujay@gmail.com</span>
+      <button class="btn" id="copy" type="button">Copy email</button>
+      <a class="btn" href="https://www.linkedin.com/in/g-v-abhiroop-sujay-h-18b455201/">LinkedIn ↗</a>
+      <a class="btn" href="https://github.com/Abhiroop-hgv">GitHub ↗</a>
+    </div>
+  </div>
+
+  <footer>© 2026 G V Abhiroop Sujay H</footer>
+</div>
+
+<script>
+  // In-page links scroll here instead of navigating the frame away.
+  document.querySelectorAll('[data-target]').forEach(function (a) {
+    a.addEventListener('click', function (e) {
+      var target = document.getElementById(a.getAttribute('data-target'));
+      if (!target) return;
+      e.preventDefault();
+      var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      target.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' });
+    });
+  });
+
+  (function () {
+    var btn = document.getElementById('copy');
+    var email = document.getElementById('email');
+    btn.addEventListener('click', function () {
+      var text = email.textContent.trim();
+      function selectIt() {
+        var r = document.createRange(); r.selectNodeContents(email);
+        var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+        btn.textContent = 'Selected, press Ctrl+C';
+      }
+      try {
+        navigator.clipboard.writeText(text).then(function () {
+          btn.textContent = 'Copied';
+          setTimeout(function () { btn.textContent = 'Copy email'; }, 1800);
+        }, selectIt);
+      } catch (e) { selectIt(); }
+    });
+  })();
+</script>
+</body>
+</html>
