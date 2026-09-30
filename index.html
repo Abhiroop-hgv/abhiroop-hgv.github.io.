@@ -4,295 +4,725 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>G V Abhiroop Sujay H</title>
-<meta name="description" content="G V Abhiroop Sujay H, Software Engineer building applied AI: LLM agents, RAG, NLP and computer vision.">
+<meta name="description" content="G V Abhiroop Sujay H, Software Engineer at NCR Atleos building applied AI: agentic systems, RAG, NLP and computer vision.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&display=swap">
 <style>
   img { max-width: 100%; }
+  [hidden] { display: none !important; }
   body { margin: 0; }
-  /* Single, deliberate paper look: a resume sheet on a desk. */
   :root {
-    --desk: #E6E9ED;
-    --paper: #FFFFFF;
-    --ink: #1A1F26;
-    --ink-2: #3E4752;
-    --muted: #6B7480;
-    --rule: #D6DBE1;
-    --navy: #1E3A66;
-    --navy-soft: #EAF0F8;
-    --gold: #8C5E0A;
-    --gold-soft: #FBF3E2;
+    --bg: #F6F7F9;
+    --surface: #FFFFFF;
+    --ink: #16202B;
+    --ink-2: #3F4B58;
+    --muted: #677482;
+    --line: #E0E5EB;
+    --accent: #1F4FBF;
+    --accent-soft: #E8EEFB;
+    --gold: #8A5B06;
+    --gold-soft: #FBF1DC;
+    --good: #1C7C4A;
+    --shadow: 0 1px 2px rgba(22,32,43,.05), 0 8px 24px rgba(22,32,43,.06);
     --serif: "Source Serif 4", Georgia, Cambria, "Times New Roman", serif;
     --sans: "Source Sans 3", Calibri, "Segoe UI", Arial, sans-serif;
   }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      color-scheme: dark;
+      --bg: #0D1218; --surface: #141B24; --ink: #E6EBF1; --ink-2: #B7C1CC; --muted: #8C98A6;
+      --line: #25303C; --accent: #86A6FF; --accent-soft: #1A2647; --gold: #E3B55C; --gold-soft: #2E2410;
+      --good: #57C58A; --shadow: 0 1px 2px rgba(0,0,0,.3), 0 8px 24px rgba(0,0,0,.25);
+    }
+  }
+  :root[data-theme="dark"] {
+    color-scheme: dark;
+    --bg: #0D1218; --surface: #141B24; --ink: #E6EBF1; --ink-2: #B7C1CC; --muted: #8C98A6;
+    --line: #25303C; --accent: #86A6FF; --accent-soft: #1A2647; --gold: #E3B55C; --gold-soft: #2E2410;
+    --good: #57C58A; --shadow: 0 1px 2px rgba(0,0,0,.3), 0 8px 24px rgba(0,0,0,.25);
+  }
+
   * { box-sizing: border-box; }
-  body {
-    background: var(--desk);
-    color: var(--ink);
-    font: 400 15.5px/1.55 var(--sans);
-    padding-inline: 16px;
-    padding-block: 40px;
-  }
-  a { color: var(--navy); text-underline-offset: 2px; }
-  a:focus-visible, button:focus-visible { outline: 2px solid var(--navy); outline-offset: 2px; border-radius: 3px; }
-
-  .sheet {
-    max-width: 860px; margin: 0 auto;
-    background: var(--paper);
-    border: 1px solid var(--rule);
-    box-shadow: 0 1px 2px rgba(20,30,45,.06), 0 12px 32px rgba(20,30,45,.08);
-    padding: 56px 64px 48px;
-  }
-  @media (max-width: 700px) { .sheet { padding: 32px 20px 28px; } body { padding-block: 16px; } }
-
-  /* Header */
-  header { display: grid; gap: 6px; text-align: center; padding-bottom: 18px; border-bottom: 2px solid var(--ink); }
-  h1 { font: 700 clamp(28px, 4.6vw, 38px)/1.1 var(--serif); letter-spacing: .01em; margin: 0; text-wrap: balance; }
-  .role { font: 600 16px/1.3 var(--sans); color: var(--navy); letter-spacing: .02em; }
-  .contact { display: flex; flex-wrap: wrap; justify-content: center; gap: 4px 14px; font-size: 14.5px; color: var(--ink-2); }
-  .contact span + span::before, .contact a + a::before, .contact span + a::before { content: "·"; margin-right: 14px; color: var(--muted); }
-  .email { user-select: all; }
-  .copy {
-    font: 600 12px/1 var(--sans); color: var(--navy); background: none; border: 1px solid var(--rule);
-    border-radius: 3px; padding: 3px 6px; margin-left: 6px; cursor: pointer; vertical-align: 1px;
-  }
-
-  /* Headline achievements band */
-  .band {
-    display: grid; grid-template-columns: repeat(3, 1fr);
-    margin-top: 18px; border: 1px solid var(--rule); border-radius: 4px;
-    background: var(--gold-soft);
-  }
-  .band div { padding: 12px 14px; display: grid; gap: 2px; align-content: start; }
-  .band div + div { border-left: 1px solid var(--rule); }
-  .band b { font: 700 17px/1.2 var(--serif); color: var(--gold); }
-  .band span { font-size: 13px; line-height: 1.35; color: var(--ink-2); }
-  @media (max-width: 700px) {
-    .band { grid-template-columns: 1fr; }
-    .band div + div { border-left: 0; border-top: 1px solid var(--rule); }
-  }
-
-  /* Sections */
-  section { margin-top: 28px; }
-  h2 {
-    font: 700 14px/1 var(--serif); text-transform: uppercase; letter-spacing: .12em;
-    color: var(--navy); margin: 0 0 12px; padding-bottom: 6px; border-bottom: 1px solid var(--rule);
-  }
+  body { background: var(--bg); color: var(--ink); font: 400 16px/1.6 var(--sans); padding-inline: 20px; }
+  a { color: var(--accent); text-underline-offset: 2px; }
+  button { font: inherit; color: inherit; }
+  :focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 4px; }
+  h1, h2, h3 { font-family: var(--serif); margin: 0; text-wrap: balance; }
   p { margin: 0; }
-  .summary { color: var(--ink-2); max-width: 72ch; }
 
-  /* Experience & projects */
-  .item { display: grid; gap: 6px; padding-bottom: 16px; }
-  .item + .item { padding-top: 14px; border-top: 1px dashed var(--rule); }
-  .item-head { display: flex; justify-content: space-between; align-items: baseline; gap: 4px 16px; flex-wrap: wrap; }
-  .item-head h3 { font: 700 17px/1.3 var(--serif); margin: 0; }
-  .item-head h3 em { font-style: normal; font-weight: 400; color: var(--ink-2); }
-  .when { font-size: 14px; color: var(--muted); font-variant-numeric: tabular-nums; white-space: nowrap; }
-  .item ul { margin: 0; padding-left: 18px; display: grid; gap: 3px; color: var(--ink-2); }
-  .item ul strong { color: var(--ink); font-weight: 600; }
-  .stack { font-size: 14px; color: var(--muted); }
-  .stack b { color: var(--ink-2); font-weight: 600; }
-  .medal { font: 600 13.5px/1.3 var(--sans); color: var(--gold); }
+  /* Scroll progress */
+  .progress { position: fixed; left: 0; top: 0; height: 3px; width: 100%; z-index: 20; pointer-events: none; }
+  .progress i { display: block; height: 100%; width: 100%; background: var(--accent); transform-origin: 0 50%; transform: scaleX(0); }
 
-  /* Clickable achievements */
-  .go { cursor: pointer; transition: background-color .15s; }
-  .band .go:hover { background: #F5E6C4; }
-  .go:focus-visible { outline: 2px solid var(--navy); outline-offset: -2px; }
+  /* Layout */
+  .shell { max-width: 1160px; margin: 0 auto; display: grid; grid-template-columns: 280px minmax(0, 1fr); gap: 72px; }
+  aside { position: sticky; top: calc(env(safe-area-inset-top, 0px) + 48px); align-self: start; padding-block: 48px; display: grid; gap: 28px; }
+  main { padding-block: 48px 64px; display: grid; gap: 88px; min-width: 0; }
 
-  /* Project highlight after jumping from an achievement */
-  .item { scroll-margin-top: 16px; border-radius: 4px; transition: background-color .6s, box-shadow .6s; }
-  .item.flash { background: var(--gold-soft); box-shadow: 0 0 0 10px var(--gold-soft); }
+  /* Sidebar */
+  .who h1 { font-size: 30px; font-weight: 700; line-height: 1.15; letter-spacing: -.005em; }
+  .who .role { margin-top: 6px; font-weight: 600; color: var(--accent); }
+  .status { display: inline-flex; align-items: center; gap: 8px; margin-top: 14px; font-size: 14px; color: var(--ink-2);
+    border: 1px solid var(--line); background: var(--surface); padding: 5px 10px; border-radius: 999px; }
+  .status::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--good); box-shadow: 0 0 0 3px color-mix(in srgb, var(--good) 22%, transparent); }
+  nav.toc { display: grid; gap: 2px; }
+  nav.toc button {
+    display: flex; align-items: center; gap: 12px; background: none; border: 0; padding: 7px 0; cursor: pointer;
+    font-weight: 600; font-size: 15px; color: var(--muted); text-align: left; letter-spacing: .02em;
+  }
+  nav.toc button::before { content: ""; height: 1px; width: 24px; background: currentColor; transition: width .2s; }
+  nav.toc button:hover, nav.toc button.active { color: var(--ink); }
+  nav.toc button.active::before { width: 48px; background: var(--accent); height: 2px; }
+  .links { display: grid; gap: 8px; font-size: 15px; }
+  .links .row { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+  .email { user-select: all; color: var(--ink-2); overflow-wrap: anywhere; }
+  .chipbtn { font-size: 12.5px; font-weight: 600; color: var(--accent); background: var(--accent-soft); border: 0; border-radius: 4px; padding: 3px 8px; cursor: pointer; }
+  .social { display: flex; gap: 16px; }
+  .social a { font-weight: 600; text-decoration: none; }
+  .social a:hover { text-decoration: underline; }
 
-  /* Award photos inside a project */
-  .proof { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 4px; }
-  .proof figure { margin: 0; display: grid; gap: 4px; max-width: 100%; }
-  .proof img { display: block; height: 130px; width: auto; max-width: 100%; object-fit: contain; border: 1px solid var(--rule); border-radius: 3px; background: var(--desk); }
-  .proof figcaption { font-size: 12.5px; color: var(--muted); }
+  /* Mobile: sidebar becomes a header + sticky chip nav */
+  @media (max-width: 900px) {
+    .shell { grid-template-columns: 1fr; gap: 0; }
+    aside { position: static; padding-block: 32px 0; gap: 18px; }
+    nav.toc {
+      position: sticky; top: env(safe-area-inset-top, 0px); z-index: 10; display: flex; gap: 6px; overflow-x: auto;
+      margin-inline: -20px; padding: 10px 20px; background: color-mix(in srgb, var(--bg) 92%, transparent);
+      backdrop-filter: blur(8px); border-bottom: 1px solid var(--line); scrollbar-width: none;
+    }
+    nav.toc button { padding: 6px 12px; border: 1px solid var(--line); border-radius: 999px; background: var(--surface); white-space: nowrap; font-size: 14px; }
+    nav.toc button::before { display: none; }
+    nav.toc button.active { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+    main { padding-top: 28px; gap: 64px; }
+  }
+  /* The chip nav sits outside aside on mobile so it can stick */
+  nav.toc-mobile { display: none; }
+  @media (max-width: 900px) { aside nav.toc { display: none; } nav.toc-mobile { display: flex; } }
+
+  /* Section headings */
+  .sec-label { font-size: 13px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); }
+  .sec-title { font-size: clamp(26px, 3.4vw, 34px); font-weight: 700; margin-top: 6px; letter-spacing: -.01em; }
+  section { scroll-margin-top: 72px; display: grid; gap: 24px; }
+
+  /* About */
+  .lead { font: 400 clamp(19px, 2.2vw, 22px)/1.55 var(--serif); color: var(--ink); max-width: 62ch; }
+  .stats { display: grid; grid-template-columns: repeat(3, 1fr); border-block: 1px solid var(--line); }
+  .stats div { padding: 16px 16px 16px 0; display: grid; gap: 2px; }
+  .stats div + div { padding-left: 20px; border-left: 1px solid var(--line); }
+  .stats b { font: 700 30px/1.1 var(--serif); font-variant-numeric: tabular-nums; }
+  .stats span { font-size: 14px; color: var(--muted); }
+  @media (max-width: 480px) { .stats b { font-size: 24px; } .stats div + div { padding-left: 12px; } }
+
+  /* Awards carousel */
+  .carousel-head { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+  .carousel-head h3 { font-size: 18px; font-weight: 700; }
+  .arrows { display: flex; gap: 6px; }
+  .arrows button { width: 36px; height: 36px; border-radius: 50%; border: 1px solid var(--line); background: var(--surface); cursor: pointer; font-size: 16px; line-height: 1; }
+  .arrows button:hover { border-color: var(--accent); color: var(--accent); }
+  .arrows button:disabled { opacity: .35; cursor: default; border-color: var(--line); color: inherit; }
+  .track {
+    display: grid; grid-auto-flow: column; grid-auto-columns: minmax(260px, 300px); gap: 16px;
+    overflow-x: auto; scroll-snap-type: x mandatory; padding: 4px 2px 14px; scrollbar-width: thin;
+  }
+  .award {
+    scroll-snap-align: start; background: var(--surface); border: 1px solid var(--line); border-radius: 10px;
+    overflow: hidden; display: grid; grid-template-rows: 160px auto; text-align: left; padding: 0; cursor: pointer;
+    transition: transform .2s, box-shadow .2s, border-color .2s;
+  }
+  .award:hover { transform: translateY(-3px); box-shadow: var(--shadow); border-color: color-mix(in srgb, var(--gold) 45%, var(--line)); }
+  .award.static { cursor: default; }
+  .award.static:hover { transform: none; box-shadow: none; border-color: var(--line); }
+  .award img { width: 100%; height: 160px; object-fit: cover; display: block; background: var(--bg); }
+  .award .body { padding: 14px 16px 16px; display: grid; gap: 4px; align-content: start; }
+  .award .res { font: 700 19px/1.2 var(--serif); color: var(--gold); }
+  .award .ev { font-weight: 600; font-size: 15px; line-height: 1.35; }
+  .award .meta { font-size: 13.5px; color: var(--muted); }
+  .award .go { margin-top: 6px; font-size: 13.5px; font-weight: 600; color: var(--accent); }
+
+  /* Projects */
+  .filters { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+  .filters button {
+    border: 1px solid var(--line); background: var(--surface); border-radius: 999px; padding: 6px 14px; cursor: pointer;
+    font-size: 14.5px; font-weight: 600; color: var(--ink-2);
+  }
+  .filters button:hover { border-color: var(--accent); color: var(--accent); }
+  .filters button[aria-pressed="true"] { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+  .filter-note { font-size: 14px; color: var(--muted); }
+  .filter-note button { background: none; border: 0; padding: 0; color: var(--accent); font-weight: 600; cursor: pointer; text-decoration: underline; }
+  .projects { display: grid; gap: 16px; }
+
+  .project {
+    background: var(--surface); border: 1px solid var(--line); border-radius: 12px; scroll-margin-top: 72px;
+    transition: box-shadow .25s, border-color .25s;
+  }
+  .project:hover { box-shadow: var(--shadow); }
+  .project.flash { border-color: var(--gold); box-shadow: 0 0 0 4px var(--gold-soft), var(--shadow); }
+  .project summary { list-style: none; cursor: pointer; padding: 22px 24px; display: grid; gap: 10px; }
+  .project summary::-webkit-details-marker { display: none; }
+  .p-top { display: flex; justify-content: space-between; gap: 12px; align-items: flex-start; }
+  .p-kind { font-size: 13px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+  .project h3 { font-size: 23px; font-weight: 700; margin-top: 2px; }
+  .toggle { flex: none; width: 32px; height: 32px; border-radius: 50%; border: 1px solid var(--line); display: grid; place-items: center; color: var(--muted); transition: transform .25s, color .2s; }
+  .toggle::before { content: "+"; font-size: 20px; line-height: 1; }
+  .project[open] .toggle { transform: rotate(45deg); color: var(--accent); border-color: var(--accent); }
+  .badges { display: flex; flex-wrap: wrap; gap: 6px; }
+  .badge { font-size: 13px; font-weight: 600; color: var(--gold); background: var(--gold-soft); padding: 3px 9px; border-radius: 4px; }
+  .badge.plain { color: var(--muted); background: var(--bg); }
+  .one { color: var(--ink-2); max-width: 70ch; }
+  .tech { display: flex; flex-wrap: wrap; gap: 6px; }
+  .tech span { font-size: 13px; color: var(--ink-2); border: 1px solid var(--line); border-radius: 4px; padding: 2px 8px; }
+  .tech span.hit { border-color: var(--accent); color: var(--accent); background: var(--accent-soft); }
+
+  .p-body { padding: 0 24px 24px; display: grid; gap: 18px; border-top: 1px dashed var(--line); padding-top: 18px; margin-inline: 0; }
+  .p-body ul { margin: 0; padding-left: 20px; display: grid; gap: 6px; color: var(--ink-2); max-width: 72ch; }
+  .p-body strong { color: var(--ink); font-weight: 600; }
+  .flow-label { font-size: 12.5px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+  .flow { list-style: none; margin: 8px 0 0; padding: 0; display: flex; flex-wrap: wrap; align-items: center; row-gap: 10px; }
+  .flow > li { display: flex; align-items: center; }
+  .flow > li + li::before { content: "→"; color: var(--muted); padding-inline: 8px; }
+  .node { font-size: 14px; line-height: 1.3; padding: 7px 11px; border-radius: 6px; border: 1px solid var(--line); background: var(--bg); }
+  .node small { display: block; font-size: 12px; color: var(--muted); }
+  .node.key { background: var(--accent-soft); border-color: transparent; }
+  .node.gate { border-style: dashed; border-color: var(--accent); }
+  .fork { display: grid; gap: 6px; }
+  .photos { display: flex; flex-wrap: wrap; gap: 12px; }
+  .photos figure { margin: 0; display: grid; gap: 6px; max-width: 100%; }
+  .photos img { height: 150px; width: auto; max-width: 100%; object-fit: contain; border: 1px solid var(--line); border-radius: 6px; background: var(--bg); display: block; }
+  .photos figcaption { font-size: 13px; color: var(--muted); }
+  .p-links { display: flex; gap: 16px; font-weight: 600; font-size: 15px; }
+  .p-links a { text-decoration: none; }
+  .p-links a:hover { text-decoration: underline; }
+  .p-links .private { color: var(--muted); font-weight: 400; }
+  @media (max-width: 520px) { .project summary { padding: 18px; } .p-body { padding: 16px 18px 20px; } .project h3 { font-size: 20px; } }
+
+  /* Experience */
+  .job { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 24px; display: grid; gap: 12px; }
+  .job-head { display: flex; justify-content: space-between; gap: 6px 16px; flex-wrap: wrap; align-items: baseline; }
+  .job h3 { font-size: 22px; font-weight: 700; }
+  .job h3 em { font-style: normal; font-weight: 400; color: var(--ink-2); }
+  .when { font-size: 15px; font-weight: 600; color: var(--muted); font-variant-numeric: tabular-nums; }
+  .job ul { margin: 0; padding-left: 20px; display: grid; gap: 6px; color: var(--ink-2); }
+  .job strong { color: var(--ink); font-weight: 600; }
+  .inline-link { background: none; border: 0; padding: 0; color: var(--accent); font-weight: 600; cursor: pointer; text-decoration: underline; text-underline-offset: 2px; }
 
   /* Skills */
-  .skills { display: grid; grid-template-columns: 170px 1fr; gap: 6px 18px; }
-  .skills dt { font-weight: 600; }
-  .skills dd { margin: 0; color: var(--ink-2); }
-  @media (max-width: 600px) { .skills { grid-template-columns: 1fr; gap: 0; } .skills dd { margin-bottom: 8px; } }
+  .skills { display: grid; gap: 18px; }
+  .skill-group { display: grid; grid-template-columns: 170px 1fr; gap: 12px; align-items: start; }
+  .skill-group h3 { font: 600 15px/1.4 var(--sans); color: var(--ink); padding-top: 5px; }
+  .skill-group .chips { display: flex; flex-wrap: wrap; gap: 8px; }
+  .chips button {
+    border: 1px solid var(--line); background: var(--surface); border-radius: 6px; padding: 5px 11px; cursor: pointer;
+    font-size: 14.5px; color: var(--ink-2); transition: border-color .15s, color .15s;
+  }
+  .chips button:hover { border-color: var(--accent); color: var(--accent); }
+  .chips span { border: 1px solid var(--line); border-radius: 6px; padding: 5px 11px; font-size: 14.5px; color: var(--ink-2); background: var(--surface); }
+  .skills-hint { font-size: 14px; color: var(--muted); }
+  @media (max-width: 600px) { .skill-group { grid-template-columns: 1fr; gap: 8px; } }
 
-  footer { margin-top: 28px; padding-top: 14px; border-top: 1px solid var(--rule); font-size: 13px; color: var(--muted); text-align: center; }
+  /* Contact */
+  .contact { background: var(--ink); color: var(--bg); border-radius: 14px; padding: 36px; display: grid; gap: 16px; }
+  .contact .sec-label { color: color-mix(in srgb, var(--bg) 70%, transparent); }
+  .contact h2 { font-size: clamp(26px, 3.6vw, 36px); font-weight: 700; }
+  .contact p { opacity: .8; max-width: 56ch; }
+  .contact .row { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+  .btn { display: inline-flex; align-items: center; gap: 6px; padding: 10px 16px; border-radius: 8px; font-weight: 600; font-size: 15px; text-decoration: none; cursor: pointer; border: 1px solid color-mix(in srgb, var(--bg) 40%, transparent); color: var(--bg); background: transparent; }
+  .btn.primary { background: var(--bg); color: var(--ink); border-color: var(--bg); }
+  .btn:hover { border-color: var(--bg); }
+  @media (max-width: 520px) { .contact { padding: 26px 20px; } }
 
-  @media print {
-    body { background: #fff; padding: 0; }
-    .sheet { box-shadow: none; border: 0; padding: 0; max-width: none; }
-    .copy { display: none; }
+  footer { font-size: 13.5px; color: var(--muted); padding-bottom: 8px; }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before { transition: none !important; }
   }
 </style>
 </head>
 <body>
 
-<main class="sheet">
+<div class="progress" aria-hidden="true"><i id="bar"></i></div>
 
-  <header>
-    <h1>G V Abhiroop Sujay H</h1>
-    <div class="role">Software Engineer · Applied AI</div>
-    <div class="contact">
-      <span><span class="email" id="email">abhiroopsujay@gmail.com</span><button class="copy" id="copy" type="button">Copy</button></span>
-      <a href="https://www.linkedin.com/in/g-v-abhiroop-sujay-h-18b455201/">LinkedIn</a>
-      <a href="https://github.com/Abhiroop-hgv">GitHub</a>
-    </div>
-    <div class="band" aria-label="Headline achievements">
-      <div class="go" role="link" tabindex="0" data-target="p-atm"><b>Winner &amp; Finalist</b><span>Hyderabad Innovation Challenge 2025 · NCR Atleos Reverse Innovation Challenge 2025</span></div>
-      <div class="go" role="link" tabindex="0" data-target="p-teller"><b>Global Top 10</b><span>NCR Atleos Hackathon 2024</span></div>
-      <div class="go" role="link" tabindex="0" data-target="p-circuitmind"><b>Runner-up ×2</b><span>Yuktimanthan 1.0 &amp; 2.0, team lead</span></div>
-    </div>
-  </header>
+<nav class="toc toc-mobile" aria-label="Sections">
+  <button type="button" data-target="about">About</button>
+  <button type="button" data-target="projects">Projects</button>
+  <button type="button" data-target="experience">Experience</button>
+  <button type="button" data-target="skills">Skills</button>
+  <button type="button" data-target="contact">Contact</button>
+</nav>
 
-  <section>
-    <h2>Summary</h2>
-    <p class="summary">Software Engineer with 2+ years of experience in software development and AI engineering. Currently working at NCR Atleos on ATM software, with hands-on experience in Python, machine learning, computer vision, LLMs, RAG, and agentic AI. I combine software engineering fundamentals with practical experience developing and integrating AI technologies into applications.</p>
-  </section>
-
-  <section>
-    <h2>Experience</h2>
-    <div class="item">
-      <div class="item-head">
-        <h3>Software Engineer <em>· NCR Atleos</em></h3>
-        <span class="when">02/2024 – Present</span>
-      </div>
-      <ul>
-        <li>Build <strong>production software for enterprise ATM applications</strong>.</li>
-        <li>Built AI prototypes for the ATM in NCR Atleos global innovation programs: <strong>AI Virtual Teller</strong> (Global Top 10, Hackathon 2024) and <strong>ATM Fraud Guard</strong> (Finalist, Reverse Innovation Challenge 2025).</li>
-      </ul>
-    </div>
-  </section>
-
-  <section>
-    <h2>AI Projects</h2>
-
-    <div class="item" id="p-circuitmind">
-      <div class="item-head">
-        <h3>CircuitMind AI <em>· Agentic procurement for semiconductor manufacturing</em></h3>
-        <a class="when" href="https://github.com/Abhiroop-hgv/CircuitMind">GitHub ↗</a>
-      </div>
-      <div class="medal">Runner-up, Yuktimanthan 2.0 · Team lead</div>
-      <ul>
-        <li>Converts external supply-chain disruptions into <strong>actionable procurement plans</strong>, tracing impact across BOMs and inventory to recommend part numbers, quantities, suppliers and dates.</li>
-        <li><strong>Six specialised agents orchestrated with LangGraph</strong>, using <strong>MCP</strong> for controlled access to enterprise tools and data.</li>
-        <li>JSON-schema constrained decoding, a deterministic rule engine for part compatibility, and a <strong>human-in-the-loop interrupt</strong> before any procurement action.</li>
-      </ul>
-      <div class="stack"><b>Stack:</b> LangGraph, MCP, Python, FastAPI, Next.js, PostgreSQL, Groq (gpt-oss-120b), Holt-Winters forecasting</div>
-      <div class="proof">
-        <figure><img src="img/yuktimanthan-2-prize.jpg" alt="Yuktimanthan 2.0 runner-up prize cheque, ₹21,000, September 2026" loading="lazy"><figcaption>Runner-up · Yuktimanthan 2.0 · ₹21,000</figcaption></figure>
-      </div>
+<div class="shell">
+  <aside>
+    <div class="who">
+      <h1>G V Abhiroop Sujay H</h1>
+      <div class="role">Software Engineer · Applied AI</div>
+      <div class="status">Open to AI Engineer roles</div>
     </div>
 
-    <div class="item" id="p-atm">
-      <div class="item-head">
-        <h3>ATM Fraud Guard <em>· Real-time threat detection</em></h3>
-        <span class="when">Private repo</span>
-      </div>
-      <div class="medal">Winner, Hyderabad Innovation Challenge 2025 · Finalist, NCR Atleos Reverse Innovation Challenge 2025</div>
-      <ul>
-        <li>Three vision models run concurrently at the ATM: <strong>retina matching</strong> against a convicted-criminal database, <strong>pose classification</strong> on a separate thread, and <strong>mask detection</strong>.</li>
-        <li>When a threat is flagged, the system <strong>automatically alerts the nearest police station</strong>.</li>
-      </ul>
-      <div class="stack"><b>Stack:</b> Python, PyTorch, YOLOv8, OpenCV, MediaPipe, multithreading</div>
-      <div class="proof">
-        <figure><img src="img/ncr-reverse-innovation-2025-finalist.jpg" alt="NCR Atleos Reverse Innovation Challenge 2025 finalist trophy" loading="lazy"><figcaption>Finalist · NCR Atleos 2025</figcaption></figure>
+    <nav class="toc" aria-label="Sections">
+      <button type="button" data-target="about">About</button>
+      <button type="button" data-target="projects">Projects</button>
+      <button type="button" data-target="experience">Experience</button>
+      <button type="button" data-target="skills">Skills</button>
+      <button type="button" data-target="contact">Contact</button>
+    </nav>
+
+    <div class="links">
+      <div class="row"><span class="email" id="email">abhiroopsujay@gmail.com</span><button type="button" class="chipbtn" id="copy">Copy</button></div>
+      <div class="social">
+        <a href="https://www.linkedin.com/in/g-v-abhiroop-sujay-h-18b455201/">LinkedIn ↗</a>
+        <a href="https://github.com/Abhiroop-hgv">GitHub ↗</a>
       </div>
     </div>
+  </aside>
 
-    <div class="item" id="p-teller">
-      <div class="item-head">
-        <h3>AI Virtual Teller <em>· Conversational banking</em></h3>
-        <span class="when">Private repo</span>
+  <main>
+    <!-- ABOUT -->
+    <section id="about">
+      <div>
+        <div class="sec-label">About</div>
       </div>
-      <div class="medal">Global Top 10, NCR Atleos Hackathon 2024</div>
-      <ul>
-        <li>Customers speak naturally; <strong>OpenAI Whisper</strong> transcribes the request and a <strong>fine-tuned Llama</strong> intent classifier maps it to a banking operation.</li>
-        <li>The teller <strong>executes the transaction on the customer's behalf</strong>: withdrawals, transfers, balance checks.</li>
-      </ul>
-      <div class="stack"><b>Stack:</b> Python, OpenAI Whisper, fine-tuned Llama, intent classification, transaction APIs</div>
-      <div class="proof">
-        <figure><img src="img/ncr-hackathon-2024-top10.jpg" alt="NCR Atleos Hackathon July 2024 Global Top 10 trophy" loading="lazy"><figcaption>Global Top 10 · NCR Atleos Hackathon 2024</figcaption></figure>
+      <p class="lead">Software Engineer with 2+ years of experience in software development and AI engineering. Currently working at NCR Atleos on ATM software, with hands-on experience in Python, machine learning, computer vision, LLMs, RAG, and agentic AI. I combine software engineering fundamentals with practical experience developing and integrating AI technologies into applications.</p>
+
+      <div class="stats">
+        <div><b>2+ yrs</b><span>at NCR Atleos</span></div>
+        <div><b>5</b><span>AI projects built</span></div>
+        <div><b>5</b><span>hackathon awards</span></div>
       </div>
-    </div>
 
-    <div class="item" id="p-rag">
-      <div class="item-head">
-        <h3>Manual-to-Keyword RAG <em>· Automation from plain English</em></h3>
+      <div>
+        <div class="carousel-head">
+          <h3>Recognition</h3>
+          <div class="arrows">
+            <button type="button" id="prev" aria-label="Previous award">←</button>
+            <button type="button" id="next" aria-label="Next award">→</button>
+          </div>
+        </div>
+        <div class="track" id="track">
+          <button type="button" class="award" data-project="p-atm">
+            <img src="img/ncr-reverse-innovation-2025-finalist.jpg" alt="NCR Atleos Reverse Innovation Challenge 2025 finalist trophy">
+            <span class="body">
+              <span class="res">Winner &amp; Finalist</span>
+              <span class="ev">Hyderabad Innovation Challenge 2025 · NCR Atleos Reverse Innovation Challenge 2025</span>
+              <span class="meta">ATM Fraud Guard</span>
+              <span class="go">See the project →</span>
+            </span>
+          </button>
+          <button type="button" class="award" data-project="p-teller">
+            <img src="img/ncr-hackathon-2024-top10.jpg" alt="NCR Atleos Hackathon July 2024 Global Top 10 trophy">
+            <span class="body">
+              <span class="res">Global Top 10</span>
+              <span class="ev">NCR Atleos Hackathon: The Future of the ATM</span>
+              <span class="meta">Jul 2024 · AI Virtual Teller</span>
+              <span class="go">See the project →</span>
+            </span>
+          </button>
+          <button type="button" class="award" data-project="p-circuitmind">
+            <img src="img/yuktimanthan-2-prize.jpg" alt="Yuktimanthan 2.0 runner-up prize cheque, ₹21,000, September 2026">
+            <span class="body">
+              <span class="res">Runner-up · Team lead</span>
+              <span class="ev">Yuktimanthan 2.0</span>
+              <span class="meta">Sep 2026 · ₹21,000 · CircuitMind AI</span>
+              <span class="go">See the project →</span>
+            </span>
+          </button>
+          <div class="award static">
+            <img src="img/yuktimanthan-1-prize.jpg" alt="Yuktimanthan 1.0 runner-up prize cheque, ₹15,000, August 2025">
+            <span class="body">
+              <span class="res">Runner-up · Team lead</span>
+              <span class="ev">Yuktimanthan 1.0</span>
+              <span class="meta">Aug 2025 · ₹15,000</span>
+            </span>
+          </div>
+        </div>
       </div>
-      <ul>
-        <li>Takes a plain-English query, retrieves matching entries from the automation keyword library, and generates <strong>ready-to-run automation keywords</strong>, cutting manual lookup and translation effort.</li>
-      </ul>
-      <div class="stack"><b>Stack:</b> Python, LangChain, ChromaDB, FastAPI, embeddings, LLM</div>
-    </div>
+    </section>
 
-    <div class="item" id="p-swach">
-      <div class="item-head">
-        <h3>Swach Campus <em>· Drone-based trash detection</em></h3>
-        <a class="when" href="https://github.com/Abhiroop-hgv/Mission-Store">GitHub ↗</a>
+    <!-- PROJECTS -->
+    <section id="projects">
+      <div>
+        <div class="sec-label">Projects</div>
+        <h2 class="sec-title">AI I've built</h2>
       </div>
-      <div class="medal">College project</div>
-      <ul>
-        <li>Users pick waypoints in a web app; the drone flies to each and captures an image.</li>
-        <li>A pre-trained <strong>YOLOv5</strong> model runs inference; any detection above <strong>0.5 confidence</strong> automatically raises a <strong>ServiceNow ticket</strong> for the facilities team.</li>
-      </ul>
-      <div class="stack"><b>Stack:</b> YOLOv5, PyTorch, Node.js, web app, drone waypoint missions, ServiceNow</div>
-    </div>
-  </section>
+      <div class="filters" role="group" aria-label="Filter projects">
+        <button type="button" data-filter="all" aria-pressed="true">All</button>
+        <button type="button" data-filter="agentic" aria-pressed="false">Agentic AI</button>
+        <button type="button" data-filter="rag" aria-pressed="false">RAG</button>
+        <button type="button" data-filter="vision" aria-pressed="false">Computer Vision</button>
+        <button type="button" data-filter="nlp" aria-pressed="false">NLP &amp; Speech</button>
+      </div>
+      <div class="filter-note" id="filterNote" hidden></div>
 
-  <section>
-    <h2>Skills</h2>
-    <dl class="skills">
-      <dt>LLMs &amp; agents</dt><dd>LangGraph, MCP, LangChain, multi-agent orchestration, constrained decoding, human-in-the-loop</dd>
-      <dt>RAG</dt><dd>ChromaDB, embeddings, retrieval pipelines, grounded generation</dd>
-      <dt>NLP &amp; speech</dt><dd>Fine-tuned Llama, intent classification, OpenAI Whisper</dd>
-      <dt>Computer vision</dt><dd>PyTorch, YOLOv5, YOLOv8, OpenCV, MediaPipe</dd>
-      <dt>Engineering</dt><dd>Python, FastAPI, Node.js, Next.js, PostgreSQL, ServiceNow integration</dd>
-      <dt>Leadership</dt><dd>Led hackathon teams to runner-up at Yuktimanthan 1.0 and 2.0</dd>
-    </dl>
-  </section>
+      <div class="projects">
+        <!-- CircuitMind -->
+        <details class="project" id="p-circuitmind" data-cat="agentic" data-tech="LangGraph|MCP|Python|FastAPI|Next.js|PostgreSQL|Groq|Holt-Winters" open>
+          <summary>
+            <div class="p-top">
+              <div>
+                <div class="p-kind">Agentic AI · Semiconductor supply chain</div>
+                <h3>CircuitMind AI</h3>
+              </div>
+              <span class="toggle" aria-hidden="true"></span>
+            </div>
+            <div class="badges"><span class="badge">Runner-up · Yuktimanthan 2.0</span><span class="badge plain">Team lead</span></div>
+            <p class="one">Six LangGraph agents turn supply-chain disruptions into procurement plans, with a human approving before anything is ordered.</p>
+            <div class="tech"><span>LangGraph</span><span>MCP</span><span>Python</span><span>FastAPI</span><span>Next.js</span><span>PostgreSQL</span><span>Groq</span><span>Holt-Winters</span></div>
+          </summary>
+          <div class="p-body">
+            <ul>
+              <li>Converts external supply-chain disruptions into <strong>actionable procurement plans</strong>, tracing impact across BOMs and inventory to recommend part numbers, quantities, suppliers and dates.</li>
+              <li><strong>Six specialised agents orchestrated with LangGraph</strong>, using <strong>MCP</strong> for controlled access to enterprise tools and data.</li>
+              <li>JSON-schema constrained decoding (Groq, gpt-oss-120b), a deterministic rule engine for part compatibility, and Holt-Winters forecasting for shortage dates.</li>
+              <li>A <strong>human-in-the-loop interrupt</strong> lets a buyer review and approve the plan before any procurement action runs.</li>
+            </ul>
+            <div>
+              <div class="flow-label">Agent graph</div>
+              <ol class="flow">
+                <li><span class="node">Event ingestion<small>notice → JSON</small></span></li>
+                <li><span class="node">Exposure<small>suppliers, origin</small></span></li>
+                <li><span class="node">Shortage<small>ledger + forecast</small></span></li>
+                <li><span class="node">Substitutes<small>rule engine</small></span></li>
+                <li><span class="node">Procurement<small>price × reliability</small></span></li>
+                <li><span class="node key gate">Human approval<small>LangGraph interrupt</small></span></li>
+              </ol>
+            </div>
+            <div class="photos">
+              <figure><img src="img/yuktimanthan-2-prize.jpg" alt="Yuktimanthan 2.0 runner-up prize cheque, ₹21,000" loading="lazy"><figcaption>Runner-up prize · Yuktimanthan 2.0 · ₹21,000</figcaption></figure>
+            </div>
+            <div class="p-links"><a href="https://github.com/Abhiroop-hgv/CircuitMind">View code on GitHub ↗</a></div>
+          </div>
+        </details>
 
-  <footer>G V Abhiroop Sujay H · abhiroopsujay@gmail.com</footer>
-</main>
+        <!-- ATM Fraud Guard -->
+        <details class="project" id="p-atm" data-cat="vision" data-tech="Python|PyTorch|YOLOv8|OpenCV|MediaPipe|Multithreading">
+          <summary>
+            <div class="p-top">
+              <div>
+                <div class="p-kind">Computer vision · ATM security</div>
+                <h3>ATM Fraud Guard</h3>
+              </div>
+              <span class="toggle" aria-hidden="true"></span>
+            </div>
+            <div class="badges"><span class="badge">Winner · Hyderabad Innovation Challenge 2025</span><span class="badge">Finalist · NCR Atleos Reverse Innovation Challenge 2025</span></div>
+            <p class="one">Three vision models watch the ATM in real time and alert the nearest police station when they spot a threat.</p>
+            <div class="tech"><span>Python</span><span>PyTorch</span><span>YOLOv8</span><span>OpenCV</span><span>MediaPipe</span><span>Multithreading</span></div>
+          </summary>
+          <div class="p-body">
+            <ul>
+              <li>Three models run concurrently: <strong>retina matching</strong> against a convicted-criminal database, <strong>pose classification</strong> on a separate thread, and <strong>mask detection</strong>.</li>
+              <li>When a threat is flagged, the system <strong>automatically alerts the nearest police station</strong>.</li>
+            </ul>
+            <div>
+              <div class="flow-label">Inference flow</div>
+              <ol class="flow">
+                <li><span class="node">ATM camera</span></li>
+                <li><div class="fork">
+                  <span class="node">Retina match<small>criminal DB</small></span>
+                  <span class="node">Pose classifier<small>own thread</small></span>
+                  <span class="node">Mask detection</span>
+                </div></li>
+                <li><span class="node gate">Threat flagged</span></li>
+                <li><span class="node key">Alert nearest police station</span></li>
+              </ol>
+            </div>
+            <div class="photos">
+              <figure><img src="img/ncr-reverse-innovation-2025-finalist.jpg" alt="NCR Atleos Reverse Innovation Challenge 2025 finalist trophy" loading="lazy"><figcaption>Finalist trophy · NCR Atleos 2025</figcaption></figure>
+            </div>
+            <div class="p-links"><span class="private">Code in a private repository</span></div>
+          </div>
+        </details>
+
+        <!-- Virtual Teller -->
+        <details class="project" id="p-teller" data-cat="nlp" data-tech="Python|OpenAI Whisper|Fine-tuned Llama|Intent classification|Transaction APIs">
+          <summary>
+            <div class="p-top">
+              <div>
+                <div class="p-kind">NLP &amp; speech · Banking</div>
+                <h3>AI Virtual Teller</h3>
+              </div>
+              <span class="toggle" aria-hidden="true"></span>
+            </div>
+            <div class="badges"><span class="badge">Global Top 10 · NCR Atleos Hackathon 2024</span></div>
+            <p class="one">Customers speak to the teller in their own words and it completes the transaction for them.</p>
+            <div class="tech"><span>Python</span><span>OpenAI Whisper</span><span>Fine-tuned Llama</span><span>Intent classification</span><span>Transaction APIs</span></div>
+          </summary>
+          <div class="p-body">
+            <ul>
+              <li><strong>OpenAI Whisper</strong> transcribes the spoken request and a <strong>fine-tuned Llama</strong> intent classifier maps it to a banking operation.</li>
+              <li>The teller <strong>executes the transaction on the customer's behalf</strong>: withdrawals, transfers and balance checks.</li>
+            </ul>
+            <div>
+              <div class="flow-label">Flow</div>
+              <ol class="flow">
+                <li><span class="node">"Send ₹500 to Rahul"<small>spoken request</small></span></li>
+                <li><span class="node">Speech to text<small>Whisper</small></span></li>
+                <li><span class="node">Intent classifier<small>fine-tuned Llama</small></span></li>
+                <li><span class="node key">Transaction executed</span></li>
+              </ol>
+            </div>
+            <div class="photos">
+              <figure><img src="img/ncr-hackathon-2024-top10.jpg" alt="NCR Atleos Hackathon July 2024 Global Top 10 trophy" loading="lazy"><figcaption>Global Top 10 trophy · Jul 2024</figcaption></figure>
+            </div>
+            <div class="p-links"><span class="private">Code in a private repository</span></div>
+          </div>
+        </details>
+
+        <!-- RAG -->
+        <details class="project" id="p-rag" data-cat="rag" data-tech="Python|LangChain|ChromaDB|FastAPI|Embeddings|LLM">
+          <summary>
+            <div class="p-top">
+              <div>
+                <div class="p-kind">RAG · Automation</div>
+                <h3>Manual-to-Keyword RAG</h3>
+              </div>
+              <span class="toggle" aria-hidden="true"></span>
+            </div>
+            <p class="one">Turns plain-English requests into ready-to-run automation keywords, cutting manual lookup work.</p>
+            <div class="tech"><span>Python</span><span>LangChain</span><span>ChromaDB</span><span>FastAPI</span><span>Embeddings</span><span>LLM</span></div>
+          </summary>
+          <div class="p-body">
+            <ul>
+              <li>Retrieves matching entries from the automation keyword library in <strong>ChromaDB</strong> and uses <strong>LangChain</strong> to generate grounded, <strong>ready-to-run automation keywords</strong>.</li>
+              <li>Served through <strong>FastAPI</strong>; reduces the manual effort of finding and translating keywords by hand.</li>
+            </ul>
+            <div>
+              <div class="flow-label">Pipeline</div>
+              <ol class="flow">
+                <li><span class="node">User query<small>plain English</small></span></li>
+                <li><span class="node">Retrieve<small>ChromaDB</small></span></li>
+                <li><span class="node">Generate<small>LangChain + LLM</small></span></li>
+                <li><span class="node key">Automation keywords</span></li>
+              </ol>
+            </div>
+          </div>
+        </details>
+
+        <!-- Swach Campus -->
+        <details class="project" id="p-swach" data-cat="vision" data-tech="YOLOv5|PyTorch|Node.js|ServiceNow">
+          <summary>
+            <div class="p-top">
+              <div>
+                <div class="p-kind">Computer vision · Drones</div>
+                <h3>Swach Campus</h3>
+              </div>
+              <span class="toggle" aria-hidden="true"></span>
+            </div>
+            <div class="badges"><span class="badge plain">College project</span></div>
+            <p class="one">A drone flies user-chosen waypoints, spots trash with YOLOv5, and raises a ServiceNow ticket automatically.</p>
+            <div class="tech"><span>YOLOv5</span><span>PyTorch</span><span>Node.js</span><span>ServiceNow</span><span>Drone missions</span></div>
+          </summary>
+          <div class="p-body">
+            <ul>
+              <li>Users pick waypoints in a web app; the drone flies to each one and captures an image.</li>
+              <li>A pre-trained <strong>YOLOv5</strong> model runs inference; any detection above <strong>0.5 confidence</strong> raises a <strong>ServiceNow ticket</strong> for the facilities team.</li>
+            </ul>
+            <div>
+              <div class="flow-label">Mission loop</div>
+              <ol class="flow">
+                <li><span class="node">Pick waypoints</span></li>
+                <li><span class="node">Drone flies</span></li>
+                <li><span class="node">Capture image</span></li>
+                <li><span class="node">YOLOv5</span></li>
+                <li><span class="node gate">conf &gt; 0.5</span></li>
+                <li><span class="node key">ServiceNow ticket</span></li>
+              </ol>
+            </div>
+            <div class="p-links"><a href="https://github.com/Abhiroop-hgv/Mission-Store">View code on GitHub ↗</a></div>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section id="experience">
+      <div>
+        <div class="sec-label">Experience</div>
+        <h2 class="sec-title">Where I work</h2>
+      </div>
+      <div class="job">
+        <div class="job-head">
+          <h3>Software Engineer <em>· NCR Atleos</em></h3>
+          <span class="when">02/2024 – Present</span>
+        </div>
+        <ul>
+          <li>Build <strong>production software for enterprise ATM applications</strong>.</li>
+          <li>Built AI prototypes for the ATM in NCR Atleos global innovation programs: <button type="button" class="inline-link" data-project="p-teller">AI Virtual Teller</button> (Global Top 10, Hackathon 2024) and <button type="button" class="inline-link" data-project="p-atm">ATM Fraud Guard</button> (Finalist, Reverse Innovation Challenge 2025).</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills">
+      <div>
+        <div class="sec-label">Skills</div>
+        <h2 class="sec-title">What I work with</h2>
+      </div>
+      <p class="skills-hint">Click a skill to see the projects that use it.</p>
+      <div class="skills">
+        <div class="skill-group"><h3>LLMs &amp; agents</h3><div class="chips">
+          <button type="button" data-tech="LangGraph">LangGraph</button><button type="button" data-tech="MCP">MCP</button><button type="button" data-tech="LangChain">LangChain</button><button type="button" data-tech="Groq">Groq</button><button type="button" data-tech="Fine-tuned Llama">Fine-tuned Llama</button>
+        </div></div>
+        <div class="skill-group"><h3>RAG</h3><div class="chips">
+          <button type="button" data-tech="ChromaDB">ChromaDB</button><button type="button" data-tech="Embeddings">Embeddings</button>
+        </div></div>
+        <div class="skill-group"><h3>NLP &amp; speech</h3><div class="chips">
+          <button type="button" data-tech="OpenAI Whisper">OpenAI Whisper</button><button type="button" data-tech="Intent classification">Intent classification</button>
+        </div></div>
+        <div class="skill-group"><h3>Computer vision</h3><div class="chips">
+          <button type="button" data-tech="PyTorch">PyTorch</button><button type="button" data-tech="YOLOv5">YOLOv5</button><button type="button" data-tech="YOLOv8">YOLOv8</button><button type="button" data-tech="OpenCV">OpenCV</button><button type="button" data-tech="MediaPipe">MediaPipe</button>
+        </div></div>
+        <div class="skill-group"><h3>Engineering</h3><div class="chips">
+          <button type="button" data-tech="Python">Python</button><button type="button" data-tech="FastAPI">FastAPI</button><button type="button" data-tech="Node.js">Node.js</button><button type="button" data-tech="Next.js">Next.js</button><button type="button" data-tech="PostgreSQL">PostgreSQL</button><button type="button" data-tech="ServiceNow">ServiceNow</button>
+        </div></div>
+        <div class="skill-group"><h3>Leadership</h3><div class="chips">
+          <span>Led teams to runner-up at Yuktimanthan 1.0 &amp; 2.0</span>
+        </div></div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="contact">
+      <div class="sec-label">Contact</div>
+      <h2>Let's build something useful with AI.</h2>
+      <p>I'm open to AI Engineer roles working on agentic systems, RAG, and applied vision or speech.</p>
+      <div class="row">
+        <button type="button" class="btn primary" id="copy2">Copy email</button>
+        <a class="btn" href="https://www.linkedin.com/in/g-v-abhiroop-sujay-h-18b455201/">LinkedIn ↗</a>
+        <a class="btn" href="https://github.com/Abhiroop-hgv">GitHub ↗</a>
+      </div>
+    </section>
+
+    <footer>G V Abhiroop Sujay H · abhiroopsujay@gmail.com</footer>
+  </main>
+</div>
 
 <script>
-  // Achievements jump to their project (scripted, since plain #links leave the viewer).
-  (function () {
-    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    function go(el) {
-      var target = document.getElementById(el.getAttribute('data-target'));
-      if (!target) return;
-      target.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' });
-      target.classList.remove('flash');
-      void target.offsetWidth;
-      target.classList.add('flash');
-      setTimeout(function () { target.classList.remove('flash'); }, 1800);
-    }
-    document.querySelectorAll('.go').forEach(function (el) {
-      el.addEventListener('click', function () { go(el); });
-      el.addEventListener('keydown', function (e) {
-        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); go(el); }
-      });
-    });
-  })();
+(function () {
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var behavior = reduce ? 'auto' : 'smooth';
 
-  (function () {
-    var btn = document.getElementById('copy');
-    var email = document.getElementById('email');
-    btn.addEventListener('click', function () {
-      var text = email.textContent.trim();
-      function selectIt() {
-        var r = document.createRange(); r.selectNodeContents(email);
-        var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
-        btn.textContent = 'Press Ctrl+C';
-      }
-      try {
-        navigator.clipboard.writeText(text).then(function () {
-          btn.textContent = 'Copied';
-          setTimeout(function () { btn.textContent = 'Copy'; }, 1800);
-        }, selectIt);
-      } catch (e) { selectIt(); }
+  function scrollToEl(el) { el.scrollIntoView({ behavior: behavior, block: 'start' }); }
+
+  // Section nav (scripted; plain #links leave the artifact viewer)
+  document.querySelectorAll('nav.toc button').forEach(function (b) {
+    b.addEventListener('click', function () {
+      var t = document.getElementById(b.dataset.target);
+      if (t) scrollToEl(t);
     });
-  })();
+  });
+
+  // Scroll-spy
+  var navBtns = document.querySelectorAll('nav.toc button');
+  function setActive(id) {
+    navBtns.forEach(function (b) { b.classList.toggle('active', b.dataset.target === id); });
+    var m = document.querySelector('.toc-mobile button.active');
+    if (m && m.scrollIntoView && getComputedStyle(m.parentNode).display !== 'none') {
+      m.parentNode.scrollTo({ left: m.offsetLeft - 20, behavior: behavior });
+    }
+  }
+  setActive('about');
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) { if (e.isIntersecting) setActive(e.target.id); });
+    }, { rootMargin: '-35% 0px -60% 0px' });
+    document.querySelectorAll('main section').forEach(function (s) { io.observe(s); });
+  }
+
+  // Progress bar
+  var bar = document.getElementById('bar');
+  function onScroll() {
+    var h = document.documentElement;
+    var max = h.scrollHeight - h.clientHeight;
+    bar.style.transform = 'scaleX(' + (max > 0 ? Math.min(1, h.scrollTop / max) : 0) + ')';
+    if (max > 0 && h.scrollTop >= max - 4) setActive('contact');
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  // Open a project, scroll to it, flash it
+  function openProject(id) {
+    var p = document.getElementById(id);
+    if (!p) return;
+    if (p.hidden) applyFilter('all');
+    p.open = true;
+    scrollToEl(p);
+    p.classList.remove('flash'); void p.offsetWidth; p.classList.add('flash');
+    setTimeout(function () { p.classList.remove('flash'); }, 1800);
+  }
+  document.querySelectorAll('[data-project]').forEach(function (el) {
+    el.addEventListener('click', function () { openProject(el.dataset.project); });
+  });
+
+  // Awards carousel arrows
+  var track = document.getElementById('track');
+  var prev = document.getElementById('prev'), next = document.getElementById('next');
+  function step() { var c = track.querySelector('.award'); return c ? c.getBoundingClientRect().width + 16 : 300; }
+  prev.addEventListener('click', function () { track.scrollBy({ left: -step(), behavior: behavior }); });
+  next.addEventListener('click', function () { track.scrollBy({ left: step(), behavior: behavior }); });
+  function arrows() {
+    prev.disabled = track.scrollLeft < 4;
+    next.disabled = track.scrollLeft + track.clientWidth >= track.scrollWidth - 4;
+  }
+  track.addEventListener('scroll', arrows, { passive: true });
+  window.addEventListener('resize', arrows);
+  arrows();
+
+  // Project filters (by area or by skill)
+  var projects = document.querySelectorAll('.project');
+  var filterBtns = document.querySelectorAll('.filters button');
+  var note = document.getElementById('filterNote');
+  function applyFilter(cat, tech) {
+    var shown = 0;
+    projects.forEach(function (p) {
+      var techs = p.dataset.tech.split('|');
+      var match = tech ? techs.indexOf(tech) !== -1 : (cat === 'all' || p.dataset.cat === cat);
+      p.hidden = !match;
+      if (match) shown++;
+      p.querySelectorAll('.tech span').forEach(function (s) {
+        s.classList.toggle('hit', !!tech && s.textContent.indexOf(tech.replace('Fine-tuned ', '')) !== -1);
+      });
+      if (tech && match) p.open = true;
+    });
+    filterBtns.forEach(function (b) { b.setAttribute('aria-pressed', String(!tech && b.dataset.filter === cat)); });
+    if (tech) {
+      note.hidden = false;
+      note.innerHTML = '';
+      note.appendChild(document.createTextNode(shown + ' project' + (shown === 1 ? '' : 's') + ' using ' + tech + '. '));
+      var clear = document.createElement('button');
+      clear.type = 'button'; clear.textContent = 'Show all';
+      clear.addEventListener('click', function () { applyFilter('all'); });
+      note.appendChild(clear);
+    } else {
+      note.hidden = true;
+    }
+  }
+  filterBtns.forEach(function (b) { b.addEventListener('click', function () { applyFilter(b.dataset.filter); }); });
+  document.querySelectorAll('.chips button').forEach(function (b) {
+    b.addEventListener('click', function () {
+      applyFilter(null, b.dataset.tech);
+      scrollToEl(document.getElementById('projects'));
+    });
+  });
+
+  // Copy email
+  var email = document.getElementById('email');
+  function copy(btn, label) {
+    var text = email.textContent.trim();
+    function fallback() {
+      var r = document.createRange(); r.selectNodeContents(email);
+      var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+      btn.textContent = 'Press Ctrl+C';
+    }
+    try {
+      navigator.clipboard.writeText(text).then(function () {
+        btn.textContent = 'Copied';
+        setTimeout(function () { btn.textContent = label; }, 1800);
+      }, fallback);
+    } catch (e) { fallback(); }
+  }
+  var c1 = document.getElementById('copy'), c2 = document.getElementById('copy2');
+  c1.addEventListener('click', function () { copy(c1, 'Copy'); });
+  c2.addEventListener('click', function () { copy(c2, 'Copy email'); });
+})();
 </script>
 </body>
 </html>
