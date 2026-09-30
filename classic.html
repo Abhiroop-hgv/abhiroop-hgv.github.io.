@@ -1,0 +1,298 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>G V Abhiroop Sujay H Resume</title>
+<meta name="description" content="G V Abhiroop Sujay H, Software Engineer building applied AI: LLM agents, RAG, NLP and computer vision.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&display=swap">
+<style>
+  img { max-width: 100%; }
+  body { margin: 0; }
+  /* Single, deliberate paper look: a resume sheet on a desk. */
+  :root {
+    --desk: #E6E9ED;
+    --paper: #FFFFFF;
+    --ink: #1A1F26;
+    --ink-2: #3E4752;
+    --muted: #6B7480;
+    --rule: #D6DBE1;
+    --navy: #1E3A66;
+    --navy-soft: #EAF0F8;
+    --gold: #8C5E0A;
+    --gold-soft: #FBF3E2;
+    --serif: "Source Serif 4", Georgia, Cambria, "Times New Roman", serif;
+    --sans: "Source Sans 3", Calibri, "Segoe UI", Arial, sans-serif;
+  }
+  * { box-sizing: border-box; }
+  body {
+    background: var(--desk);
+    color: var(--ink);
+    font: 400 15.5px/1.55 var(--sans);
+    padding-inline: 16px;
+    padding-block: 40px;
+  }
+  a { color: var(--navy); text-underline-offset: 2px; }
+  a:focus-visible, button:focus-visible { outline: 2px solid var(--navy); outline-offset: 2px; border-radius: 3px; }
+
+  .sheet {
+    max-width: 860px; margin: 0 auto;
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    box-shadow: 0 1px 2px rgba(20,30,45,.06), 0 12px 32px rgba(20,30,45,.08);
+    padding: 56px 64px 48px;
+  }
+  @media (max-width: 700px) { .sheet { padding: 32px 20px 28px; } body { padding-block: 16px; } }
+
+  /* Header */
+  header { display: grid; gap: 6px; text-align: center; padding-bottom: 18px; border-bottom: 2px solid var(--ink); }
+  h1 { font: 700 clamp(28px, 4.6vw, 38px)/1.1 var(--serif); letter-spacing: .01em; margin: 0; text-wrap: balance; }
+  .role { font: 600 16px/1.3 var(--sans); color: var(--navy); letter-spacing: .02em; }
+  .contact { display: flex; flex-wrap: wrap; justify-content: center; gap: 4px 14px; font-size: 14.5px; color: var(--ink-2); }
+  .contact span + span::before, .contact a + a::before, .contact span + a::before { content: "·"; margin-right: 14px; color: var(--muted); }
+  .email { user-select: all; }
+  .copy {
+    font: 600 12px/1 var(--sans); color: var(--navy); background: none; border: 1px solid var(--rule);
+    border-radius: 3px; padding: 3px 6px; margin-left: 6px; cursor: pointer; vertical-align: 1px;
+  }
+
+  /* Headline achievements band */
+  .band {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    margin-top: 18px; border: 1px solid var(--rule); border-radius: 4px;
+    background: var(--gold-soft);
+  }
+  .band div { padding: 12px 14px; display: grid; gap: 2px; align-content: start; }
+  .band div + div { border-left: 1px solid var(--rule); }
+  .band b { font: 700 17px/1.2 var(--serif); color: var(--gold); }
+  .band span { font-size: 13px; line-height: 1.35; color: var(--ink-2); }
+  @media (max-width: 700px) {
+    .band { grid-template-columns: 1fr; }
+    .band div + div { border-left: 0; border-top: 1px solid var(--rule); }
+  }
+
+  /* Sections */
+  section { margin-top: 28px; }
+  h2 {
+    font: 700 14px/1 var(--serif); text-transform: uppercase; letter-spacing: .12em;
+    color: var(--navy); margin: 0 0 12px; padding-bottom: 6px; border-bottom: 1px solid var(--rule);
+  }
+  p { margin: 0; }
+  .summary { color: var(--ink-2); max-width: 72ch; }
+
+  /* Experience & projects */
+  .item { display: grid; gap: 6px; padding-bottom: 16px; }
+  .item + .item { padding-top: 14px; border-top: 1px dashed var(--rule); }
+  .item-head { display: flex; justify-content: space-between; align-items: baseline; gap: 4px 16px; flex-wrap: wrap; }
+  .item-head h3 { font: 700 17px/1.3 var(--serif); margin: 0; }
+  .item-head h3 em { font-style: normal; font-weight: 400; color: var(--ink-2); }
+  .when { font-size: 14px; color: var(--muted); font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .item ul { margin: 0; padding-left: 18px; display: grid; gap: 3px; color: var(--ink-2); }
+  .item ul strong { color: var(--ink); font-weight: 600; }
+  .stack { font-size: 14px; color: var(--muted); }
+  .stack b { color: var(--ink-2); font-weight: 600; }
+  .medal { font: 600 13.5px/1.3 var(--sans); color: var(--gold); }
+
+  /* Clickable achievements */
+  .go { cursor: pointer; transition: background-color .15s; }
+  .band .go:hover { background: #F5E6C4; }
+  .go:focus-visible { outline: 2px solid var(--navy); outline-offset: -2px; }
+
+  /* Project highlight after jumping from an achievement */
+  .item { scroll-margin-top: 16px; border-radius: 4px; transition: background-color .6s, box-shadow .6s; }
+  .item.flash { background: var(--gold-soft); box-shadow: 0 0 0 10px var(--gold-soft); }
+
+  /* Award photos inside a project */
+  .proof { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 4px; }
+  .proof figure { margin: 0; display: grid; gap: 4px; max-width: 100%; }
+  .proof img { display: block; height: 130px; width: auto; max-width: 100%; object-fit: contain; border: 1px solid var(--rule); border-radius: 3px; background: var(--desk); }
+  .proof figcaption { font-size: 12.5px; color: var(--muted); }
+
+  /* Skills */
+  .skills { display: grid; grid-template-columns: 170px 1fr; gap: 6px 18px; }
+  .skills dt { font-weight: 600; }
+  .skills dd { margin: 0; color: var(--ink-2); }
+  @media (max-width: 600px) { .skills { grid-template-columns: 1fr; gap: 0; } .skills dd { margin-bottom: 8px; } }
+
+  footer { margin-top: 28px; padding-top: 14px; border-top: 1px solid var(--rule); font-size: 13px; color: var(--muted); text-align: center; }
+
+  @media print {
+    body { background: #fff; padding: 0; }
+    .sheet { box-shadow: none; border: 0; padding: 0; max-width: none; }
+    .copy { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<main class="sheet">
+
+  <header>
+    <h1>G V Abhiroop Sujay H</h1>
+    <div class="role">Software Engineer · Applied AI</div>
+    <div class="contact">
+      <span><span class="email" id="email">abhiroopsujay@gmail.com</span><button class="copy" id="copy" type="button">Copy</button></span>
+      <a href="https://www.linkedin.com/in/g-v-abhiroop-sujay-h-18b455201/">LinkedIn</a>
+      <a href="https://github.com/Abhiroop-hgv">GitHub</a>
+    </div>
+    <div class="band" aria-label="Headline achievements">
+      <div class="go" role="link" tabindex="0" data-target="p-atm"><b>Winner &amp; Finalist</b><span>Hyderabad Innovation Challenge 2025 · NCR Atleos Reverse Innovation Challenge 2025</span></div>
+      <div class="go" role="link" tabindex="0" data-target="p-teller"><b>Global Top 10</b><span>NCR Atleos Hackathon 2024</span></div>
+      <div class="go" role="link" tabindex="0" data-target="p-circuitmind"><b>Runner-up ×2</b><span>Yuktimanthan 1.0 &amp; 2.0, team lead</span></div>
+    </div>
+  </header>
+
+  <section>
+    <h2>Summary</h2>
+    <p class="summary">Software Engineer with 2+ years of experience in software development and AI engineering. Currently working at NCR Atleos on ATM software, with hands-on experience in Python, machine learning, computer vision, LLMs, RAG, and agentic AI. I combine software engineering fundamentals with practical experience developing and integrating AI technologies into applications.</p>
+  </section>
+
+  <section>
+    <h2>Experience</h2>
+    <div class="item">
+      <div class="item-head">
+        <h3>Software Engineer <em>· NCR Atleos</em></h3>
+        <span class="when">02/2024 – Present</span>
+      </div>
+      <ul>
+        <li>Build <strong>production software for enterprise ATM applications</strong>.</li>
+        <li>Built AI prototypes for the ATM in NCR Atleos global innovation programs: <strong>AI Virtual Teller</strong> (Global Top 10, Hackathon 2024) and <strong>ATM Fraud Guard</strong> (Finalist, Reverse Innovation Challenge 2025).</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <h2>AI Projects</h2>
+
+    <div class="item" id="p-circuitmind">
+      <div class="item-head">
+        <h3>CircuitMind AI <em>· Agentic procurement for semiconductor manufacturing</em></h3>
+        <a class="when" href="https://github.com/Abhiroop-hgv/CircuitMind">GitHub ↗</a>
+      </div>
+      <div class="medal">Runner-up, Yuktimanthan 2.0 · Team lead</div>
+      <ul>
+        <li>Converts external supply-chain disruptions into <strong>actionable procurement plans</strong>, tracing impact across BOMs and inventory to recommend part numbers, quantities, suppliers and dates.</li>
+        <li><strong>Six specialised agents orchestrated with LangGraph</strong>, using <strong>MCP</strong> for controlled access to enterprise tools and data.</li>
+        <li>JSON-schema constrained decoding, a deterministic rule engine for part compatibility, and a <strong>human-in-the-loop interrupt</strong> before any procurement action.</li>
+      </ul>
+      <div class="stack"><b>Stack:</b> LangGraph, MCP, Python, FastAPI, Next.js, PostgreSQL, Groq (gpt-oss-120b), Holt-Winters forecasting</div>
+      <div class="proof">
+        <figure><img src="img/yuktimanthan-2-prize.jpg" alt="Yuktimanthan 2.0 runner-up prize cheque, ₹21,000, September 2026" loading="lazy"><figcaption>Runner-up · Yuktimanthan 2.0 · ₹21,000</figcaption></figure>
+      </div>
+    </div>
+
+    <div class="item" id="p-atm">
+      <div class="item-head">
+        <h3>ATM Fraud Guard <em>· Real-time threat detection</em></h3>
+        <span class="when">Private repo</span>
+      </div>
+      <div class="medal">Winner, Hyderabad Innovation Challenge 2025 · Finalist, NCR Atleos Reverse Innovation Challenge 2025</div>
+      <ul>
+        <li>Three vision models run concurrently at the ATM: <strong>retina matching</strong> against a convicted-criminal database, <strong>pose classification</strong> on a separate thread, and <strong>mask detection</strong>.</li>
+        <li>When a threat is flagged, the system <strong>automatically alerts the nearest police station</strong>.</li>
+      </ul>
+      <div class="stack"><b>Stack:</b> Python, PyTorch, YOLOv8, OpenCV, MediaPipe, multithreading</div>
+      <div class="proof">
+        <figure><img src="img/ncr-reverse-innovation-2025-finalist.jpg" alt="NCR Atleos Reverse Innovation Challenge 2025 finalist trophy" loading="lazy"><figcaption>Finalist · NCR Atleos 2025</figcaption></figure>
+      </div>
+    </div>
+
+    <div class="item" id="p-teller">
+      <div class="item-head">
+        <h3>AI Virtual Teller <em>· Conversational banking</em></h3>
+        <span class="when">Private repo</span>
+      </div>
+      <div class="medal">Global Top 10, NCR Atleos Hackathon 2024</div>
+      <ul>
+        <li>Customers speak naturally; <strong>OpenAI Whisper</strong> transcribes the request and a <strong>fine-tuned Llama</strong> intent classifier maps it to a banking operation.</li>
+        <li>The teller <strong>executes the transaction on the customer's behalf</strong>: withdrawals, transfers, balance checks.</li>
+      </ul>
+      <div class="stack"><b>Stack:</b> Python, OpenAI Whisper, fine-tuned Llama, intent classification, transaction APIs</div>
+      <div class="proof">
+        <figure><img src="img/ncr-hackathon-2024-top10.jpg" alt="NCR Atleos Hackathon July 2024 Global Top 10 trophy" loading="lazy"><figcaption>Global Top 10 · NCR Atleos Hackathon 2024</figcaption></figure>
+      </div>
+    </div>
+
+    <div class="item" id="p-rag">
+      <div class="item-head">
+        <h3>Manual-to-Keyword RAG <em>· Automation from plain English</em></h3>
+      </div>
+      <ul>
+        <li>Takes a plain-English query, retrieves matching entries from the automation keyword library, and generates <strong>ready-to-run automation keywords</strong>, cutting manual lookup and translation effort.</li>
+      </ul>
+      <div class="stack"><b>Stack:</b> Python, LangChain, ChromaDB, FastAPI, embeddings, LLM</div>
+    </div>
+
+    <div class="item" id="p-swach">
+      <div class="item-head">
+        <h3>Swach Campus <em>· Drone-based trash detection</em></h3>
+        <a class="when" href="https://github.com/Abhiroop-hgv/Mission-Store">GitHub ↗</a>
+      </div>
+      <div class="medal">College project</div>
+      <ul>
+        <li>Users pick waypoints in a web app; the drone flies to each and captures an image.</li>
+        <li>A pre-trained <strong>YOLOv5</strong> model runs inference; any detection above <strong>0.5 confidence</strong> automatically raises a <strong>ServiceNow ticket</strong> for the facilities team.</li>
+      </ul>
+      <div class="stack"><b>Stack:</b> YOLOv5, PyTorch, Node.js, web app, drone waypoint missions, ServiceNow</div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Skills</h2>
+    <dl class="skills">
+      <dt>LLMs &amp; agents</dt><dd>LangGraph, MCP, LangChain, multi-agent orchestration, constrained decoding, human-in-the-loop</dd>
+      <dt>RAG</dt><dd>ChromaDB, embeddings, retrieval pipelines, grounded generation</dd>
+      <dt>NLP &amp; speech</dt><dd>Fine-tuned Llama, intent classification, OpenAI Whisper</dd>
+      <dt>Computer vision</dt><dd>PyTorch, YOLOv5, YOLOv8, OpenCV, MediaPipe</dd>
+      <dt>Engineering</dt><dd>Python, FastAPI, Node.js, Next.js, PostgreSQL, ServiceNow integration</dd>
+      <dt>Leadership</dt><dd>Led hackathon teams to runner-up at Yuktimanthan 1.0 and 2.0</dd>
+    </dl>
+  </section>
+
+  <footer>G V Abhiroop Sujay H · abhiroopsujay@gmail.com</footer>
+</main>
+
+<script>
+  // Achievements jump to their project (scripted, since plain #links leave the viewer).
+  (function () {
+    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    function go(el) {
+      var target = document.getElementById(el.getAttribute('data-target'));
+      if (!target) return;
+      target.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' });
+      target.classList.remove('flash');
+      void target.offsetWidth;
+      target.classList.add('flash');
+      setTimeout(function () { target.classList.remove('flash'); }, 1800);
+    }
+    document.querySelectorAll('.go').forEach(function (el) {
+      el.addEventListener('click', function () { go(el); });
+      el.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); go(el); }
+      });
+    });
+  })();
+
+  (function () {
+    var btn = document.getElementById('copy');
+    var email = document.getElementById('email');
+    btn.addEventListener('click', function () {
+      var text = email.textContent.trim();
+      function selectIt() {
+        var r = document.createRange(); r.selectNodeContents(email);
+        var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+        btn.textContent = 'Press Ctrl+C';
+      }
+      try {
+        navigator.clipboard.writeText(text).then(function () {
+          btn.textContent = 'Copied';
+          setTimeout(function () { btn.textContent = 'Copy'; }, 1800);
+        }, selectIt);
+      } catch (e) { selectIt(); }
+    });
+  })();
+</script>
+</body>
+</html>
