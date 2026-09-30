@@ -60,7 +60,7 @@
 
   /* Headline achievements band */
   .band {
-    display: grid; grid-template-columns: repeat(4, 1fr);
+    display: grid; grid-template-columns: repeat(3, 1fr);
     margin-top: 18px; border: 1px solid var(--rule); border-radius: 4px;
     background: var(--gold-soft);
   }
@@ -69,9 +69,8 @@
   .band b { font: 700 17px/1.2 var(--serif); color: var(--gold); }
   .band span { font-size: 13px; line-height: 1.35; color: var(--ink-2); }
   @media (max-width: 700px) {
-    .band { grid-template-columns: 1fr 1fr; }
-    .band div:nth-child(3) { border-left: 0; }
-    .band div:nth-child(n+3) { border-top: 1px solid var(--rule); }
+    .band { grid-template-columns: 1fr; }
+    .band div + div { border-left: 0; border-top: 1px solid var(--rule); }
   }
 
   /* Sections */
@@ -179,10 +178,9 @@
       <a href="https://github.com/Abhiroop-hgv">GitHub</a>
     </div>
     <div class="band" aria-label="Headline achievements">
-      <div class="go" role="link" tabindex="0" data-target="p-atm"><b>Winner</b><span>Hyderabad Innovation Challenge</span></div>
+      <div class="go" role="link" tabindex="0" data-target="p-atm"><b>Winner &amp; Finalist</b><span>Hyderabad Innovation Challenge 2025 · NCR Atleos Reverse Innovation Challenge 2025</span></div>
       <div class="go" role="link" tabindex="0" data-target="p-teller"><b>Global Top 10</b><span>NCR Atleos Hackathon 2024</span></div>
       <div class="go" role="link" tabindex="0" data-target="p-circuitmind"><b>Runner-up ×2</b><span>Yuktimanthan 1.0 &amp; 2.0, team lead</span></div>
-      <div class="go" role="link" tabindex="0" data-target="p-atm"><b>Finalist</b><span>NCR Atleos Reverse Innovation Challenge 2025</span></div>
     </div>
   </header>
 
@@ -199,13 +197,14 @@
     <h2>Achievements</h2>
     <div class="awards">
       <div class="award go" role="link" tabindex="0" data-target="p-atm">
-        <div class="result">Winner</div>
+        <div class="result">Winner<small>2025 · + Finalist</small></div>
         <div class="what">
-          <strong>Hyderabad Innovation Challenge</strong>
+          <strong>Hyderabad Innovation Challenge 2025</strong>
+          <span>Also a finalist at the NCR Atleos Reverse Innovation Challenge 2025</span>
           <span>ATM Fraud Guard: real-time threat detection for ATMs</span>
           <span class="view">View project →</span>
         </div>
-        <span class="noimg"></span>
+        <img src="img/ncr-reverse-innovation-2025-finalist.jpg" alt="NCR Atleos Reverse Innovation Challenge 2025 finalist trophy awarded to G V Abhiroop Sujay Huttavali" loading="lazy">
       </div>
       <div class="award go" role="link" tabindex="0" data-target="p-teller">
         <div class="result">Global Top 10<small>Jul 2024</small></div>
@@ -232,15 +231,6 @@
           <span><span class="tag">Team lead</span>Team Satyatma</span>
         </div>
         <img src="img/yuktimanthan-1-prize.jpg" alt="Udyoga Pramoda prize cheque for ₹15,000 to Team Satyatma, 17 August 2025, Yuktimanthan 1.0" loading="lazy">
-      </div>
-      <div class="award go" role="link" tabindex="0" data-target="p-atm">
-        <div class="result">Finalist<small>2025</small></div>
-        <div class="what">
-          <strong>NCR Atleos Reverse Innovation Challenge 2025</strong>
-          <span>ATM Fraud Guard</span>
-          <span class="view">View project →</span>
-        </div>
-        <img src="img/ncr-reverse-innovation-2025-finalist.jpg" alt="NCR Atleos Reverse Innovation Challenge 2025 finalist trophy awarded to G V Abhiroop Sujay Huttavali" loading="lazy">
       </div>
     </div>
   </section>
@@ -284,7 +274,7 @@
         <h3>ATM Fraud Guard <em>· Real-time threat detection</em></h3>
         <span class="when">Private repo</span>
       </div>
-      <div class="medal">Winner, Hyderabad Innovation Challenge · Finalist, NCR Atleos Reverse Innovation Challenge 2025</div>
+      <div class="medal">Winner, Hyderabad Innovation Challenge 2025 · Finalist, NCR Atleos Reverse Innovation Challenge 2025</div>
       <ul>
         <li>Three vision models run concurrently at the ATM: <strong>retina matching</strong> against a convicted-criminal database, <strong>pose classification</strong> on a separate thread, and <strong>mask detection</strong>.</li>
         <li>When a threat is flagged, the system <strong>automatically alerts the nearest police station</strong>.</li>
