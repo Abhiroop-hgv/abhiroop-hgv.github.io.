@@ -55,50 +55,49 @@
   .progress { position: fixed; left: 0; top: 0; height: 3px; width: 100%; z-index: 20; pointer-events: none; }
   .progress i { display: block; height: 100%; width: 100%; background: var(--accent); transform-origin: 0 50%; transform: scaleX(0); }
 
-  /* Layout */
-  .shell { max-width: 1160px; margin: 0 auto; display: grid; grid-template-columns: 280px minmax(0, 1fr); gap: 72px; }
-  aside { position: sticky; top: calc(env(safe-area-inset-top, 0px) + 48px); align-self: start; padding-block: 48px; display: grid; gap: 28px; }
-  main { padding-block: 48px 64px; display: grid; gap: 88px; min-width: 0; }
+  /* Layout: header on top, pinned section bar, single column */
+  .wrap { max-width: 960px; margin: 0 auto; }
+  main { padding-block: 40px 64px; display: grid; gap: 88px; min-width: 0; }
+  @media (max-width: 700px) { main { padding-top: 28px; gap: 64px; } }
 
-  /* Sidebar */
-  .who h1 { font-size: 30px; font-weight: 700; line-height: 1.15; letter-spacing: -.005em; }
-  .who .role { margin-top: 6px; font-weight: 600; color: var(--accent); }
-  .status { display: inline-flex; align-items: center; gap: 8px; margin-top: 14px; font-size: 14px; color: var(--ink-2);
+  /* Header */
+  .top { display: flex; justify-content: space-between; align-items: flex-end; gap: 20px 32px; flex-wrap: wrap; padding-block: 44px 24px; }
+  .who h1 { font-size: clamp(28px, 4vw, 38px); font-weight: 700; line-height: 1.12; letter-spacing: -.005em; }
+  .who .role { margin-top: 6px; font-weight: 600; font-size: 17px; color: var(--accent); }
+  .status { display: inline-flex; align-items: center; gap: 8px; margin-top: 12px; font-size: 14px; color: var(--ink-2);
     border: 1px solid var(--line); background: var(--surface); padding: 5px 10px; border-radius: 999px; }
   .status::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--good); box-shadow: 0 0 0 3px color-mix(in srgb, var(--good) 22%, transparent); }
-  nav.toc { display: grid; gap: 2px; }
-  nav.toc button {
-    display: flex; align-items: center; gap: 12px; background: none; border: 0; padding: 7px 0; cursor: pointer;
-    font-weight: 600; font-size: 15px; color: var(--muted); text-align: left; letter-spacing: .02em;
-  }
-  nav.toc button::before { content: ""; height: 1px; width: 24px; background: currentColor; transition: width .2s; }
-  nav.toc button:hover, nav.toc button.active { color: var(--ink); }
-  nav.toc button.active::before { width: 48px; background: var(--accent); height: 2px; }
-  .links { display: grid; gap: 8px; font-size: 15px; }
+  .links { display: grid; gap: 8px; font-size: 15px; justify-items: end; }
   .links .row { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
   .email { user-select: all; color: var(--ink-2); overflow-wrap: anywhere; }
   .chipbtn { font-size: 12.5px; font-weight: 600; color: var(--accent); background: var(--accent-soft); border: 0; border-radius: 4px; padding: 3px 8px; cursor: pointer; }
   .social { display: flex; gap: 16px; }
   .social a { font-weight: 600; text-decoration: none; }
   .social a:hover { text-decoration: underline; }
+  @media (max-width: 700px) { .top { padding-block: 28px 18px; } .links { justify-items: start; } }
 
-  /* Mobile: sidebar becomes a header + sticky chip nav */
-  @media (max-width: 900px) {
-    .shell { grid-template-columns: 1fr; gap: 0; }
-    aside { position: static; padding-block: 32px 0; gap: 18px; }
-    nav.toc {
-      position: sticky; top: env(safe-area-inset-top, 0px); z-index: 10; display: flex; gap: 6px; overflow-x: auto;
-      margin-inline: -20px; padding: 10px 20px; background: color-mix(in srgb, var(--bg) 92%, transparent);
-      backdrop-filter: blur(8px); border-bottom: 1px solid var(--line); scrollbar-width: none;
-    }
-    nav.toc button { padding: 6px 12px; border: 1px solid var(--line); border-radius: 999px; background: var(--surface); white-space: nowrap; font-size: 14px; }
-    nav.toc button::before { display: none; }
-    nav.toc button.active { background: var(--ink); color: var(--bg); border-color: var(--ink); }
-    main { padding-top: 28px; gap: 64px; }
+  /* Pinned section bar */
+  nav.toc {
+    position: sticky; top: env(safe-area-inset-top, 0px); z-index: 10;
+    margin-inline: -20px; padding-inline: 20px;
+    background: color-mix(in srgb, var(--bg) 90%, transparent); backdrop-filter: blur(10px);
+    border-block: 1px solid var(--line);
   }
-  /* The chip nav sits outside aside on mobile so it can stick */
-  nav.toc-mobile { display: none; }
-  @media (max-width: 900px) { aside nav.toc { display: none; } nav.toc-mobile { display: flex; } }
+  nav.toc .wrap { display: flex; gap: 4px; overflow-x: auto; scrollbar-width: none; }
+  nav.toc .wrap::-webkit-scrollbar { display: none; }
+  nav.toc button {
+    position: relative; background: none; border: 0; cursor: pointer; white-space: nowrap;
+    padding: 14px 14px; font-weight: 600; font-size: 15px; color: var(--muted);
+  }
+  nav.toc button:first-child { padding-left: 0; }
+  nav.toc button::after {
+    content: ""; position: absolute; left: 14px; right: 14px; bottom: -1px; height: 2px; border-radius: 2px;
+    background: var(--accent); transform: scaleX(0); transition: transform .2s;
+  }
+  nav.toc button:first-child::after { left: 0; }
+  nav.toc button:hover { color: var(--ink); }
+  nav.toc button.active { color: var(--ink); }
+  nav.toc button.active::after { transform: scaleX(1); }
 
   /* Section headings */
   .sec-label { font-size: 13px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); }
@@ -242,40 +241,33 @@
 
 <div class="progress" aria-hidden="true"><i id="bar"></i></div>
 
-<nav class="toc toc-mobile" aria-label="Sections">
-  <button type="button" data-target="about">About</button>
-  <button type="button" data-target="projects">Projects</button>
-  <button type="button" data-target="experience">Experience</button>
-  <button type="button" data-target="skills">Skills</button>
-  <button type="button" data-target="contact">Contact</button>
-</nav>
 
-<div class="shell">
-  <aside>
-    <div class="who">
+<header class="top wrap">
+  <div class="who">
       <h1>G V Abhiroop Sujay H</h1>
       <div class="role">Software Engineer · Applied AI</div>
       <div class="status">Open to AI Engineer roles</div>
     </div>
-
-    <nav class="toc" aria-label="Sections">
-      <button type="button" data-target="about">About</button>
-      <button type="button" data-target="projects">Projects</button>
-      <button type="button" data-target="experience">Experience</button>
-      <button type="button" data-target="skills">Skills</button>
-      <button type="button" data-target="contact">Contact</button>
-    </nav>
-
-    <div class="links">
+  <div class="links">
       <div class="row"><span class="email" id="email">abhiroopsujay@gmail.com</span><button type="button" class="chipbtn" id="copy">Copy</button></div>
       <div class="social">
         <a href="https://www.linkedin.com/in/g-v-abhiroop-sujay-h-18b455201/">LinkedIn ↗</a>
         <a href="https://github.com/Abhiroop-hgv">GitHub ↗</a>
       </div>
     </div>
-  </aside>
+</header>
 
-  <main>
+<nav class="toc" aria-label="Sections">
+  <div class="wrap">
+    <button type="button" data-target="about">About</button>
+    <button type="button" data-target="projects">Projects</button>
+    <button type="button" data-target="experience">Experience</button>
+    <button type="button" data-target="skills">Skills</button>
+    <button type="button" data-target="contact">Contact</button>
+  </div>
+</nav>
+
+<main class="wrap">
     <!-- ABOUT -->
     <section id="about">
       <div>
@@ -593,7 +585,6 @@
 
     <footer>G V Abhiroop Sujay H · abhiroopsujay@gmail.com</footer>
   </main>
-</div>
 
 <script>
 (function () {
@@ -614,10 +605,8 @@
   var navBtns = document.querySelectorAll('nav.toc button');
   function setActive(id) {
     navBtns.forEach(function (b) { b.classList.toggle('active', b.dataset.target === id); });
-    var m = document.querySelector('.toc-mobile button.active');
-    if (m && m.scrollIntoView && getComputedStyle(m.parentNode).display !== 'none') {
-      m.parentNode.scrollTo({ left: m.offsetLeft - 20, behavior: behavior });
-    }
+    var m = document.querySelector('nav.toc button.active');
+    if (m) m.parentNode.scrollTo({ left: Math.max(0, m.offsetLeft - 20), behavior: behavior });
   }
   setActive('about');
   if ('IntersectionObserver' in window) {
