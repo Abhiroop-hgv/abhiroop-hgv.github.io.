@@ -90,34 +90,6 @@
   .note p { font: italic 400 16px/1.6 var(--serif); color: var(--ink); max-width: 70ch; }
   .note .sig { font: 600 14px/1 var(--sans); color: var(--navy); font-style: normal; }
 
-  /* Achievements */
-  .awards { display: grid; gap: 0; }
-  .award {
-    display: grid; grid-template-columns: 132px 1fr auto; gap: 18px; align-items: center;
-    padding-block: 14px; border-bottom: 1px solid var(--rule);
-  }
-  .award:first-child { padding-top: 4px; }
-  .award:last-child { border-bottom: 0; }
-  .result { font: 700 18px/1.15 var(--serif); color: var(--gold); }
-  .result small { display: block; font: 600 12px/1.3 var(--sans); color: var(--muted); letter-spacing: .04em; text-transform: uppercase; margin-top: 4px; }
-  .what { display: grid; gap: 3px; min-width: 0; }
-  .what strong { font: 600 16px/1.3 var(--sans); }
-  .what span { color: var(--ink-2); font-size: 14.5px; }
-  .tag {
-    display: inline-block; font: 600 11.5px/1 var(--sans); letter-spacing: .04em; text-transform: uppercase;
-    color: var(--navy); background: var(--navy-soft); padding: 4px 6px; border-radius: 3px; margin-right: 6px;
-  }
-  .award img {
-    display: block; height: 84px; width: auto; max-width: 150px; object-fit: cover;
-    border: 1px solid var(--rule); border-radius: 3px; background: var(--desk);
-  }
-  .award .noimg { width: 0; }
-  @media (max-width: 600px) {
-    .award { grid-template-columns: 1fr auto; gap: 10px 14px; }
-    .award .result { grid-column: 1 / -1; }
-    .award img { height: 72px; max-width: 110px; }
-  }
-
   /* Experience & projects */
   .item { display: grid; gap: 6px; padding-bottom: 16px; }
   .item + .item { padding-top: 14px; border-top: 1px dashed var(--rule); }
@@ -134,11 +106,7 @@
   /* Clickable achievements */
   .go { cursor: pointer; transition: background-color .15s; }
   .band .go:hover { background: #F5E6C4; }
-  .award.go { margin-inline: -10px; padding-inline: 10px; border-radius: 4px; }
-  .award.go:hover { background: var(--gold-soft); }
   .go:focus-visible { outline: 2px solid var(--navy); outline-offset: -2px; }
-  .view { font: 600 13px/1.3 var(--sans); color: var(--navy); margin-top: 2px; }
-  .award.go:hover .view { text-decoration: underline; }
 
   /* Project highlight after jumping from an achievement */
   .item { scroll-margin-top: 16px; border-radius: 4px; transition: background-color .6s, box-shadow .6s; }
@@ -190,48 +158,6 @@
     <div class="note">
       <p>My first AI project was a drone we flew over our college campus to spot litter. What stayed with me was the last step: when the model found trash, a ticket went to the people who could clean it up. I've built the same way ever since, from a teller that completes a transaction when you ask, to an ATM that alerts the police, to agents that draft a factory's purchase plan. Most of these started as hackathon ideas with teams I led, and I'm proud of every one of them.</p>
       <span class="sig">— Abhiroop</span>
-    </div>
-  </section>
-
-  <section>
-    <h2>Achievements</h2>
-    <div class="awards">
-      <div class="award go" role="link" tabindex="0" data-target="p-atm">
-        <div class="result">Winner<small>2025 · + Finalist</small></div>
-        <div class="what">
-          <strong>Hyderabad Innovation Challenge 2025</strong>
-          <span>Also a finalist at the NCR Atleos Reverse Innovation Challenge 2025</span>
-          <span>ATM Fraud Guard: real-time threat detection for ATMs</span>
-          <span class="view">View project →</span>
-        </div>
-        <img src="img/ncr-reverse-innovation-2025-finalist.jpg" alt="NCR Atleos Reverse Innovation Challenge 2025 finalist trophy awarded to G V Abhiroop Sujay Huttavali" loading="lazy">
-      </div>
-      <div class="award go" role="link" tabindex="0" data-target="p-teller">
-        <div class="result">Global Top 10<small>Jul 2024</small></div>
-        <div class="what">
-          <strong>NCR Atleos Hackathon: The Future of the ATM</strong>
-          <span>AI Virtual Teller: voice-driven banking with a fine-tuned Llama</span>
-          <span class="view">View project →</span>
-        </div>
-        <img src="img/ncr-hackathon-2024-top10.jpg" alt="NCR Atleos Hackathon July 2024 Global Top 10 trophy awarded to G V Abhiroop Sujay Huttavali" loading="lazy">
-      </div>
-      <div class="award go" role="link" tabindex="0" data-target="p-circuitmind">
-        <div class="result">Runner-up<small>Sep 2026 · ₹21,000</small></div>
-        <div class="what">
-          <strong>Yuktimanthan 2.0</strong>
-          <span><span class="tag">Team lead</span>CircuitMind AI: multi-agent procurement system</span>
-          <span class="view">View project →</span>
-        </div>
-        <img src="img/yuktimanthan-2-prize.jpg" alt="Udyoga Pramoda prize cheque for ₹21,000 to Team Satyatma, 13 September 2026, Yuktimanthan 2.0" loading="lazy">
-      </div>
-      <div class="award">
-        <div class="result">Runner-up<small>Aug 2025 · ₹15,000</small></div>
-        <div class="what">
-          <strong>Yuktimanthan 1.0</strong>
-          <span><span class="tag">Team lead</span>Team Satyatma</span>
-        </div>
-        <img src="img/yuktimanthan-1-prize.jpg" alt="Udyoga Pramoda prize cheque for ₹15,000 to Team Satyatma, 17 August 2025, Yuktimanthan 1.0" loading="lazy">
-      </div>
     </div>
   </section>
 
